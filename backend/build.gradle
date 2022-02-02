@@ -20,15 +20,14 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-graphql'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
+    runtimeOnly 'org.springframework.boot:spring-boot-starter-actuator'
+    runtimeOnly 'org.springdoc:springdoc-openapi-ui:1.6.4'
+    compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework:spring-webflux'
-    testImplementation 'org.springframework.graphql:spring-graphql-test'
 }
 
 tasks.named('test') {
