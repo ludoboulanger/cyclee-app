@@ -33,3 +33,8 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+task buildDocker(type: Exec) {
+    dependsOn build
+    commandLine "docker", "build", "--build-arg", "DEPENDENCY=build/dependency", "-t", "cyclee/api:latest", "."
+}
