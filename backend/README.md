@@ -8,6 +8,8 @@ To build the application, use: `./gradlew build` in the `./backend` directory. T
 
 To start the application use : `./gradlew bootRun` in the backend directory. This starts an Apache Tomcat server on port `8080`.
 
+To build the docker image, use : `./gradlew buildDocker` in the backend directory. This builds the image and tags it with `cyclee/api:latest`. **Need to create a Cyclee Docker hub account**
+
 To view a list of tasks that, run `./gradlew tasks`.
 
 #### Health check
