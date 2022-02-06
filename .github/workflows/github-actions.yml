@@ -15,7 +15,7 @@ jobs:
         distribution: 'temurin'
         cache: 'gradle'
     - name: Checkstyle
-      run ./gradlew check
+      run: ./gradlew check
     - name: Build with Gradle
       run: ./gradlew build --no-daemon
     - name: Tests
