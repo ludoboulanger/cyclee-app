@@ -15,7 +15,7 @@ To launch your personnalized tmux session, simply type `tmuxinator cyclee` anywh
 You need WSL
 
 1. Install tmux following [these steps](https://codeandkeep.com/Tmux-on-Windows/)
-2. Edit your tmux config file and add the line `set -g mouse on` to enable mouse reporting
+2. Edit your tmux config file located by default at `$HOME/.tmux.conf` and add the line `set -g mouse on` to enable mouse reporting
 3. Create a new session config file: `tmux new cyclee`
 4. Edit that file located at `~/.tmuxinator/cyclee.yml` and paste the [following config](#config)
    - You may need to change the project root path depending on your setup
@@ -37,8 +37,12 @@ windows:
         -
   - 👾 hasura:
       panes:
-        - docker compose up --build graphql-engine
-        - docker compose up hasura-console
+        - init hasura:
+          - cd database
+          - docker compose up -d
+        - init console:
+          - cd database/hasura
+          - hasura console
   - 🔥 backend:
       panes:
         - cd backend
