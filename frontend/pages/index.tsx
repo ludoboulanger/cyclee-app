@@ -1,9 +1,14 @@
-import type { NextPage } from 'next';
+import type { NextPage, NextPageContext } from 'next';
+import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { ContextType } from 'react';
+import { Example } from '../components/example_translation';
 
 const Home: NextPage = () => {
+  const { t } = useTranslation('common');
   return (
     <div className={styles.container}>
       <Head>
@@ -16,6 +21,12 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <h2>
+          {t('hello')}
+        </h2>
+
+        <Example/>
 
         <p className={styles.description}>
           Get started by editing{' '}
@@ -68,5 +79,13 @@ const Home: NextPage = () => {
     </div>
   );
 };
+
+export async function getStaticProps({ locale } : NextPageContext) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'en', ['common', "example"])),
+    },
+  };
+}
 
 export default Home;
