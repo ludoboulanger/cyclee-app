@@ -11,19 +11,15 @@ import lightThemeOptions from '../styles/theme/lightThemeOptions';
 import '../styles/globals.css';
 import {appWithTranslation} from 'next-i18next';
 import '../firebase.config';
-interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache;
-}
 
 const clientSideEmotionCache = createEmotionCache();
 
 const lightTheme = createTheme(lightThemeOptions);
 
-const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+function MyApp({ Component, pageProps}: AppProps) {
 
   return (
-    <CacheProvider value={emotionCache}>
+    <CacheProvider value={clientSideEmotionCache}>
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
         <Component {...pageProps} />
