@@ -6,6 +6,8 @@ import styles from '../styles/Home.module.css';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { ContextType } from 'react';
 import { Example } from '../components/example_translation';
+import { Button } from '@mui/material';
+
 
 const Home: NextPage = () => {
   const { t } = useTranslation('common');
@@ -25,6 +27,8 @@ const Home: NextPage = () => {
         <h2>
           {t('hello')}
         </h2>
+
+        <Button>{t('hello')}</Button>
 
         <Example/>
 
