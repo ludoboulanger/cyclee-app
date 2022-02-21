@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { AppProps } from 'next/app';
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
+import { CacheProvider} from '@emotion/react';
+import { ThemeProvider, CssBaseline, createTheme, Box } from '@mui/material';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -22,7 +22,9 @@ function MyApp({ Component, pageProps}: AppProps) {
     <CacheProvider value={clientSideEmotionCache}>
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
-        <div style = {{height:"100vh"}}> <Component {...pageProps} />; </div>
+        <Box sx={{height:"100vh"}}> 
+          <Component {...pageProps} />; 
+        </Box>
       </ThemeProvider>
     </CacheProvider>
   );
