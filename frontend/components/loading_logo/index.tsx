@@ -6,6 +6,7 @@ import Image from "next/image";
 import logo from "/.../../public/assets/logo_svg.svg";
 import {SerializedStyles} from '@emotion/serialize';
 import { useState } from "react";
+import { Typography } from "@mui/material";
 
 const spin = keyframes`
   from, 0% to {
@@ -20,12 +21,12 @@ const spin = keyframes`
 const text_fade_in = keyframes`
 0% {
   max-width: 0px;
-  max-height: 5em;
+  max-height: 6em;
 }
 
 100% {
-  max-width: 5em;
-  max-height: 5em;
+  max-width: 10em;
+  max-height: 6em;
 }
 `;
 
@@ -50,7 +51,7 @@ export default function LoadingLogo({isLoading}: Props) {
         <div css={css`display:flex; flex-direction:column; height:100%`}>
           <div css={css`flex-grow:1; width:100%`}/>
           <div css={css`max-width:0px; max-height:0px; overflow:hidden; animation: ${isAnimationEnding? text_fade_in:""} 1.2s ease forwards;"}`}>
-            <h1 css={css`margin:0`}>yclee</h1>
+            <Typography variant="h1" css={css`margin:0`}>yclee</Typography>
           </div>
         </div>
         <span css={css`flex-grow:1; height:100%;`}/>
