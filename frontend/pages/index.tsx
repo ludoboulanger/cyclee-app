@@ -1,16 +1,16 @@
-import type { NextPage, NextPageContext } from 'next';
-import { useTranslation } from 'next-i18next';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { ContextType } from 'react';
-import { Example } from '../components/example_translation';
-import { Button } from '@mui/material';
-import { useRouter } from 'next/router';
+import type { NextPage, NextPageContext } from "next";
+import { useTranslation } from "next-i18next";
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { ContextType } from "react";
+import { Example } from "../components/example_translation";
+import { Button } from "@mui/material";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
   const router = useRouter();
   return (
     <div className={styles.container}>
@@ -25,16 +25,14 @@ const Home: NextPage = () => {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <h2>
-          {t('hello')}
-        </h2>
+        <h2>{t("hello")}</h2>
 
-        <Button>{t('hello')}</Button>
+        <Button>{t("hello")}</Button>
 
-        <Example/>
+        <Example />
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.tsx</code>
         </p>
 
@@ -75,7 +73,7 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
@@ -85,10 +83,10 @@ const Home: NextPage = () => {
   );
 };
 
-export async function getStaticProps({ locale } : NextPageContext) {
+export async function getStaticProps({ locale }: NextPageContext) {
   return {
     props: {
-      ...(await serverSideTranslations(locale || 'en', ['common', "example"])),
+      ...(await serverSideTranslations(locale || "en", ["common", "example"])),
     },
   };
 }
