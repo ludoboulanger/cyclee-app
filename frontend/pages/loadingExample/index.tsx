@@ -8,12 +8,8 @@ export default function Loading() {
 
 
   return(
-    <Box sx={{display:"flex", flexDirection:"column", height:"100%"}}>
-        <Box sx={{"flexGrow":'1'}}/>
-        <Box sx={{"flexGrow":'0'}}>
+    <Box sx={{display:"flex", flexDirection:"column", justifyContent:"center", height:"100%"}}>
           <LoadingLogo isLoading={isLoading}/>
-        </Box>
-        <Box sx={{"flexGrow":'1'}}/>
     </Box>
 
   );

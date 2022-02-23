@@ -7,10 +7,11 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { ContextType } from 'react';
 import { Example } from '../components/example_translation';
 import { Button } from '@mui/material';
-
+import { useRouter } from 'next/router';
 
 const Home: NextPage = () => {
   const { t } = useTranslation('common');
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <Head>
