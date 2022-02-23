@@ -1,6 +1,6 @@
 import { keyframes } from "@emotion/react";
 import Image from "next/image";
-import logo from "/.../../public/assets/logo_svg.svg";
+import logo from "/.../../public/assets/logo/logo.svg";
 import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 
