@@ -1,18 +1,23 @@
-import { Button, LinearProgress, TextField, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import { useFormik } from "formik";
-import React from "react";
+import { Button, LinearProgress, Typography } from "@mui/material";
+import { Box, styled } from "@mui/system";
+import { Form, Field, Formik, FormikHelpers } from "formik";
+import React, { useState } from "react";
 import Page1 from "./formPages/Page1";
 
-const pages = [<Page1 />];
+interface FormValues {
+  firstName: string;
+  lastName: string;
+  email: string;
+}
+
+const HorizontalForm = styled(Form)({
+  display: "flex",
+  flexDirection: "column",
+});
 
 export default function SignUp() {
-  const formik = useFormik({
-    initialValues: { firstName: "", lastName: "", email: "" },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+  const pages = [<Page1 />];
+  const [step, setStep] = useState(0);
 
   return (
     <Box
@@ -26,47 +31,29 @@ export default function SignUp() {
       <Typography variant="h2">Welcome to Cyclee</Typography>
       <LinearProgress
         variant="determinate"
-        value={(1 / 2) * 100}
+        value={(step / pages.length) * 100}
         sx={{ width: "100%" }}
       />
-      <form onSubmit={formik.handleSubmit}>
-        <TextField
-          fullWidth
-          id="firstName"
-          name="firstName"
-          label="Enter your first name"
-          value={formik.values.firstName}
-          onChange={formik.handleChange}
-          error={formik.touched.firstName && Boolean(formik.errors.firstName)}
-          helperText={formik.touched.firstName && formik.errors.firstName}
-        />
-        <TextField
-          fullWidth
-          id="lastName"
-          name="lastName"
-          label="Enter your last name"
-          value={formik.values.lastName}
-          onChange={formik.handleChange}
-          error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-          helperText={formik.touched.lastName && formik.errors.lastName}
-        />
-        <TextField
-          fullWidth
-          id="email"
-          name="email"
-          label="Enter your email adress"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
-        />
-        <Button fullWidth variant="contained">
-          Next
-        </Button>
-        <Button fullWidth disabled={true} variant="contained">
-          Cancel
-        </Button>
-      </form>
+      <Formik
+        initialValues={{ firstName: "", lastName: "", email: "" }}
+        onSubmit={(
+          values: FormValues,
+          { setSubmitting }: FormikHelpers<FormValues>
+        ) => {
+          alert(JSON.stringify(values, null, 2));
+          setSubmitting(false);
+        }}
+      >
+        <HorizontalForm>
+          {pages[step]}
+          <Button fullWidth variant="contained" type="submit">
+            Next
+          </Button>
+          <Button fullWidth disabled={true} variant="contained">
+            Cancel
+          </Button>
+        </HorizontalForm>
+      </Formik>
     </Box>
   );
 }
