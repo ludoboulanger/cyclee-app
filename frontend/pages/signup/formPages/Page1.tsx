@@ -1,32 +1,35 @@
-import { Field } from "formik";
 import React from "react";
+import { UseFormRegister } from "react-hook-form";
+import TextField from "../../../components/TextField";
+import { FormFields } from "../FormFields";
 
-export default function Page1() {
+interface Props {
+  register: UseFormRegister<FormFields>;
+}
+
+export default function Page1({ register }: Props) {
   return (
     <>
       <label htmlFor="firstName">Your first Name</label>
-      <Field
+      <TextField
         sx={{ width: "100%" }}
-        id="firstName"
-        name="firstName"
+        {...register("firstName")}
         placeholder="Enter your first name"
       />
 
       <label htmlFor="lastName">Your last Name</label>
-      <Field
+      <TextField
         sx={{ width: "100%" }}
-        id="lastName"
-        name="lastName"
         placeholder="Enter your last name"
+        {...register("lastName")}
       />
 
       <label htmlFor="email">Your email adress</label>
-      <Field
+      <TextField
         sx={{ width: "100%" }}
-        id="email"
-        name="email"
         placeholder="Enter your email adress"
         type="email"
+        {...register("email")}
       />
     </>
   );

@@ -1,23 +1,92 @@
 import { Button, LinearProgress, Typography } from "@mui/material";
 import { Box, styled } from "@mui/system";
-import { Form, Field, Formik, FormikHelpers } from "formik";
 import React, { useState } from "react";
 import Page1 from "./formPages/Page1";
-
-interface FormValues {
-  firstName: string;
-  lastName: string;
-  email: string;
-}
-
-const HorizontalForm = styled(Form)({
+import { useForm } from "react-hook-form";
+import { FormFields } from "./FormFields";
+import Page2 from "./formPages/Page2";
+import { useRouter } from "next/router";
+const HorizontalForm = styled("form")({
   display: "flex",
   flexDirection: "column",
 });
 
 export default function SignUp() {
-  const pages = [<Page1 />];
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormFields>();
+  const router = useRouter();
+  const onSubmit = handleSubmit((data: FormFields) =>
+    alert(JSON.stringify(data, null, 2))
+  );
+  const pages = [
+    <Page1 register={register} key="page1" />,
+    <Page2 register={register} key="page2" />,
+  ];
   const [step, setStep] = useState(0);
+
+  function getButtons(step: number) {
+    const buttons = [];
+
+    if (step == pages.length - 1) {
+      buttons.push(
+        <Button
+          fullWidth
+          variant="contained"
+          type="submit"
+          key="completeButton"
+        >
+          Complete
+        </Button>
+      );
+    } else {
+      buttons.push(
+        <Button
+          fullWidth
+          variant="contained"
+          onClick={() => {
+            setStep(step + 1);
+          }}
+          key="nextButton"
+        >
+          Next
+        </Button>
+      );
+    }
+
+    if (step == 0) {
+      buttons.push(
+        <Button
+          fullWidth
+          variant="contained"
+          onClick={() => {
+            router.back();
+          }}
+          key="cancelButton"
+        >
+          Cancel
+        </Button>
+      );
+    } else {
+      buttons.push(
+        <Button
+          fullWidth
+          variant="contained"
+          onClick={() => {
+            setStep(step - 1);
+          }}
+          key="backButton"
+        >
+          Back
+        </Button>
+      );
+    }
+
+    return buttons;
+  }
 
   return (
     <Box
@@ -34,26 +103,10 @@ export default function SignUp() {
         value={(step / pages.length) * 100}
         sx={{ width: "100%" }}
       />
-      <Formik
-        initialValues={{ firstName: "", lastName: "", email: "" }}
-        onSubmit={(
-          values: FormValues,
-          { setSubmitting }: FormikHelpers<FormValues>
-        ) => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }}
-      >
-        <HorizontalForm>
-          {pages[step]}
-          <Button fullWidth variant="contained" type="submit">
-            Next
-          </Button>
-          <Button fullWidth disabled={true} variant="contained">
-            Cancel
-          </Button>
-        </HorizontalForm>
-      </Formik>
+      <HorizontalForm onSubmit={onSubmit}>
+        {pages[step]}
+        {getButtons(step)}
+      </HorizontalForm>
     </Box>
   );
 }
