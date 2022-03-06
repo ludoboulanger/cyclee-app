@@ -1,36 +1,68 @@
+import { Button, LinearProgress, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import React from "react";
 import { UseFormRegister } from "react-hook-form";
 import TextField from "../../../components/TextField";
 import { FormFields } from "../FormFields";
+import FormPageProps from "./FormPageProps";
+import { buttonsDiv, labelAndInputDiv } from "./styles";
 
-interface Props {
-  register: UseFormRegister<FormFields>;
-}
-
-export default function Page1({ register }: Props) {
+export default function Page1({
+  progress,
+  registerFormInput,
+  cancel,
+  nextStep,
+}: FormPageProps) {
+  console.log("Page1");
   return (
     <>
-      <label htmlFor="firstName">Your first Name</label>
-      <TextField
+      <Typography align="center" variant="h2">
+        Welcome to Cyclee
+      </Typography>
+      <LinearProgress
+        variant="determinate"
+        value={progress}
         sx={{ width: "100%" }}
-        {...register("firstName")}
-        placeholder="Enter your first name"
       />
+      <Box sx={labelAndInputDiv}>
+        <label htmlFor="firstName">Your first Name</label>
+        <TextField
+          sx={{ width: "100%" }}
+          {...registerFormInput("firstName")}
+          placeholder="Enter your first name"
+        />
+      </Box>
 
-      <label htmlFor="lastName">Your last Name</label>
-      <TextField
-        sx={{ width: "100%" }}
-        placeholder="Enter your last name"
-        {...register("lastName")}
-      />
-
-      <label htmlFor="email">Your email adress</label>
-      <TextField
-        sx={{ width: "100%" }}
-        placeholder="Enter your email adress"
-        type="email"
-        {...register("email")}
-      />
+      <Box sx={labelAndInputDiv}>
+        <label htmlFor="lastName">Your last Name</label>
+        <TextField
+          sx={{ width: "100%" }}
+          placeholder="Enter your last name"
+          {...registerFormInput("lastName")}
+        />
+      </Box>
+      <Box sx={labelAndInputDiv}>
+        <label htmlFor="email">Your email adress</label>
+        <TextField
+          sx={{ width: "100%" }}
+          placeholder="Enter your email adress"
+          type="email"
+          {...registerFormInput("email")}
+        />
+      </Box>
+      <Box sx={buttonsDiv}>
+        <Button fullWidth variant="contained" onClick={(e) => nextStep()}>
+          Next
+        </Button>
+        <Button
+          fullWidth
+          variant="contained"
+          sx={{ backgroundColor: "primary.light", color: "primary.main" }}
+          onClick={(e) => cancel()}
+        >
+          Cancel
+        </Button>
+      </Box>
     </>
   );
 }

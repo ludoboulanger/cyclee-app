@@ -6,8 +6,11 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-html, body, div#__next{
+html,
+body,
+div#__next {
   height: 100%;
+  justify-content: center;
 }
 
 a {
