@@ -6,10 +6,13 @@ const lightThemeOptions: ThemeOptions = {
     h1:{
       fontSize: '3rem',
     },
+    h2:{
+      fontSize: '2rem',
+    },
     button:{
       textTransform: 'none',
       fontSize: "0.875rem",
-      lineHeight:"1rem",
+      lineHeight:"0.875rem",
     }
   },
   palette: {
@@ -34,6 +37,13 @@ const lightThemeOptions: ThemeOptions = {
         paddingLeft:'20px',
         paddingRight:'20px',
         boxShadow: "none",
+        }
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          whiteSpace:'pre-wrap',
         }
       },
     },

@@ -1,11 +1,10 @@
-import { UseFormRegister } from "react-hook-form";
-import { FormFields } from "../FormFields";
+import {  UseFormReturn } from "react-hook-form";
 
 export default interface FormPageProps<FormFieldsType> {
-    registerFormInput: UseFormRegister<FormFieldsType>;
+    form: UseFormReturn<FormFieldsType>;
     progress: number;
     nextStep: CallableFunction;
     prevStep: CallableFunction;
     cancel: CallableFunction;
     submit: CallableFunction;
-  };
+};

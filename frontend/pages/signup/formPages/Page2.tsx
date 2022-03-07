@@ -1,5 +1,5 @@
 import { Box, Button, LinearProgress, Typography } from "@mui/material";
-import React from "react";
+import React, { useMemo } from "react";
 import { UseFormRegister } from "react-hook-form";
 import TextField from "../../../components/TextField";
 import { FormFields } from "../FormFields";
@@ -7,15 +7,25 @@ import FormPageProps from "./FormPageProps";
 import { buttonsDiv, labelAndInputDiv } from "./styles";
 
 export default function Page2({
-  registerFormInput,
   progress,
   submit,
+  form,
   prevStep,
-}: FormPageProps) {
+}: FormPageProps<FormFields>) {
+  const firstName = form.watch("firstName");
+
+  const title = useMemo(() => {
+    if (firstName.length < 15) {
+      return `Welcome\n${firstName}`;
+    } else {
+      return "Welcome to Cyclee";
+    }
+  }, [firstName]);
+
   return (
     <>
       <Typography align="center" variant="h2">
-        Welcome to Cyclee
+        {title}
       </Typography>
       <LinearProgress
         variant="determinate"
@@ -26,7 +36,7 @@ export default function Page2({
         <label htmlFor="password">Your password</label>
         <TextField
           sx={{ width: "100%" }}
-          {...registerFormInput("password")}
+          {...form.register("password")}
           placeholder="Enter your password"
         />
       </Box>
@@ -35,7 +45,7 @@ export default function Page2({
         <TextField
           sx={{ width: "100%" }}
           placeholder="Confirm your password"
-          {...registerFormInput("passwordConfirm")}
+          {...form.register("passwordConfirm")}
         />
       </Box>
       <Box sx={buttonsDiv}>

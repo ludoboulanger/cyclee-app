@@ -17,6 +17,7 @@ const HorizontalForm = styled("form")({
   paddingLeft: "70px",
   paddingRight: "70px",
   maxHeight: "800px",
+  width: "100%",
 });
 interface FormControllerProps<FormFieldsType> {
   pages: Array<React.ComponentType<FormPageProps<FormFieldsType>>>;
@@ -26,14 +27,11 @@ export default function FormController<FormFieldsType>({
   pages,
 }: FormControllerProps<FormFieldsType>) {
   console.log("FormController");
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<FormFieldsType>();
+  const form = useForm<FormFieldsType>();
   const router = useRouter();
-  const onSubmit = handleSubmit((data) => alert(JSON.stringify(data, null, 2)));
+  const onSubmit = form.handleSubmit((data) =>
+    alert(JSON.stringify(data, null, 2))
+  );
 
   const [step, setStep] = useState(0);
 
@@ -49,8 +47,11 @@ export default function FormController<FormFieldsType>({
     router.back();
   }
 
-  const Page = useMemo(() => pages[step], [step]);
-  const progress = useMemo(() => ((step + 1) / pages.length) * 100, [step]);
+  const Page = useMemo(() => pages[step], [step, pages]);
+  const progress = useMemo(
+    () => ((step + 1) / pages.length) * 100,
+    [step, pages]
+  );
 
   return (
     <Box
@@ -64,7 +65,7 @@ export default function FormController<FormFieldsType>({
       <HorizontalForm onSubmit={onSubmit}>
         <Page
           progress={progress}
-          registerFormInput={register}
+          form={form}
           nextStep={nextStep}
           prevStep={prevStep}
           cancel={cancel}

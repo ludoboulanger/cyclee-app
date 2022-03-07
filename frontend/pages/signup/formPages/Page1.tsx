@@ -9,10 +9,10 @@ import { buttonsDiv, labelAndInputDiv } from "./styles";
 
 export default function Page1({
   progress,
-  registerFormInput,
+  form,
   cancel,
   nextStep,
-}: FormPageProps) {
+}: FormPageProps<FormFields>) {
   console.log("Page1");
   return (
     <>
@@ -28,7 +28,7 @@ export default function Page1({
         <label htmlFor="firstName">Your first Name</label>
         <TextField
           sx={{ width: "100%" }}
-          {...registerFormInput("firstName")}
+          {...form.register("firstName")}
           placeholder="Enter your first name"
         />
       </Box>
@@ -38,7 +38,7 @@ export default function Page1({
         <TextField
           sx={{ width: "100%" }}
           placeholder="Enter your last name"
-          {...registerFormInput("lastName")}
+          {...form.register("lastName")}
         />
       </Box>
       <Box sx={labelAndInputDiv}>
@@ -47,7 +47,7 @@ export default function Page1({
           sx={{ width: "100%" }}
           placeholder="Enter your email adress"
           type="email"
-          {...registerFormInput("email")}
+          {...form.register("email")}
         />
       </Box>
       <Box sx={buttonsDiv}>
