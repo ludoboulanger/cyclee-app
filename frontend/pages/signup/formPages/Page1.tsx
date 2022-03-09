@@ -1,7 +1,6 @@
 import { Button, LinearProgress, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import { UseFormRegister } from "react-hook-form";
 import TextField from "../../../components/TextField";
 import { FormFields } from "../FormFields";
 import FormPageProps from "./FormPageProps";
@@ -31,6 +30,7 @@ export default function Page1({
           {...form.register("firstName")}
           placeholder="Enter your first name"
         />
+        <p>{form.formState.errors.firstName?.message}</p>
       </Box>
 
       <Box sx={labelAndInputDiv}>
@@ -49,16 +49,17 @@ export default function Page1({
           type="email"
           {...form.register("email")}
         />
+        <p>{form.formState.errors.email?.message}</p>
       </Box>
       <Box sx={buttonsDiv}>
-        <Button fullWidth variant="contained" onClick={(e) => nextStep()}>
+        <Button fullWidth variant="contained" onClick={() => nextStep()}>
           Next
         </Button>
         <Button
           fullWidth
           variant="contained"
           sx={{ backgroundColor: "primary.light", color: "primary.main" }}
-          onClick={(e) => cancel()}
+          onClick={() => cancel()}
         >
           Cancel
         </Button>

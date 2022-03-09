@@ -56,7 +56,7 @@ export default function Page2({
           fullWidth
           variant="contained"
           sx={{ backgroundColor: "primary.light", color: "primary.main" }}
-          onClick={(e) => prevStep()}
+          onClick={() => prevStep()}
         >
           Back
         </Button>

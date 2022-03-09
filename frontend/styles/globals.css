@@ -17,6 +17,7 @@ div#__next {
   justify-content: center;
   display: flex;
   max-width: none;
+  width: 100%;
 }
 
 a {

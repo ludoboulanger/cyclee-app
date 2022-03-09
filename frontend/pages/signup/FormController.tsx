@@ -1,9 +1,8 @@
 import { Box, styled } from "@mui/system";
 import React, { useMemo, useState } from "react";
-import Page1 from "./formPages/Page1";
-import { useForm } from "react-hook-form";
-import { FormFields } from "./FormFields";
-import Page2 from "./formPages/Page2";
+import { useForm, UseFormReturn } from "react-hook-form";
+import * as zod from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/router";
 import FormPageProps from "./formPages/FormPageProps";
 const HorizontalForm = styled("form")({
@@ -21,17 +20,16 @@ const HorizontalForm = styled("form")({
 });
 interface FormControllerProps<FormFieldsType> {
   pages: Array<React.ComponentType<FormPageProps<FormFieldsType>>>;
+  form: UseFormReturn<FormFieldsType>;
 }
-const pages = [Page1, Page2];
 export default function FormController<FormFieldsType>({
   pages,
+  form,
 }: FormControllerProps<FormFieldsType>) {
   console.log("FormController");
-  const form = useForm<FormFieldsType>();
+
   const router = useRouter();
-  const onSubmit = form.handleSubmit((data) =>
-    alert(JSON.stringify(data, null, 2))
-  );
+  const onSubmit = form.handleSubmit((data) => console.log(data));
 
   const [step, setStep] = useState(0);
 
