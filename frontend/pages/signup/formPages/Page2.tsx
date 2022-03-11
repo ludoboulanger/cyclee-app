@@ -1,6 +1,7 @@
 import { Box, Button, LinearProgress, Typography } from "@mui/material";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { UseFormRegister } from "react-hook-form";
+import FormField from "../../../components/FormField";
 import TextField from "../../../components/TextField";
 import { FormFields } from "../FormFields";
 import FormPageProps from "./FormPageProps";
@@ -22,6 +23,10 @@ export default function Page2({
     }
   }, [firstName]);
 
+  useEffect(() => {
+    console.log(form.formState.errors);
+  }, [form.formState.errors]);
+
   return (
     <>
       <Typography align="center" variant="h2">
@@ -32,22 +37,28 @@ export default function Page2({
         value={progress}
         sx={{ width: "100%" }}
       />
-      <Box sx={labelAndInputDiv}>
-        <label htmlFor="password">Your password</label>
+      <FormField
+        labelText="Your password"
+        errorText={form.formState.errors.password?.message}
+        fieldName="password"
+      >
         <TextField
           sx={{ width: "100%" }}
           {...form.register("password")}
           placeholder="Enter your password"
         />
-      </Box>
-      <Box sx={labelAndInputDiv}>
-        <label htmlFor="lastName">Confirm your password</label>
+      </FormField>
+      <FormField
+        labelText="Confirm your password"
+        errorText={form.formState.errors.passwordConfirm?.message}
+        fieldName="passwordConfirm"
+      >
         <TextField
           sx={{ width: "100%" }}
           placeholder="Confirm your password"
           {...form.register("passwordConfirm")}
         />
-      </Box>
+      </FormField>
       <Box sx={buttonsDiv}>
         <Button fullWidth variant="contained" type="submit">
           Complete

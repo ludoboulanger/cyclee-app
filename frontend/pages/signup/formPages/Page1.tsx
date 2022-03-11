@@ -1,6 +1,7 @@
 import { Button, LinearProgress, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import FormField from "../../../components/FormField";
 import TextField from "../../../components/TextField";
 import { FormFields } from "../FormFields";
 import FormPageProps from "./FormPageProps";
@@ -23,34 +24,42 @@ export default function Page1({
         value={progress}
         sx={{ width: "100%" }}
       />
-      <Box sx={labelAndInputDiv}>
-        <label htmlFor="firstName">Your first Name</label>
+      <FormField
+        labelText="Your first Name"
+        errorText={form.formState.errors.firstName?.message}
+        fieldName="firstName"
+      >
         <TextField
           sx={{ width: "100%" }}
           {...form.register("firstName")}
           placeholder="Enter your first name"
         />
-        <p>{form.formState.errors.firstName?.message}</p>
-      </Box>
+      </FormField>
 
-      <Box sx={labelAndInputDiv}>
-        <label htmlFor="lastName">Your last Name</label>
+      <FormField
+        labelText="Your last Name"
+        errorText={form.formState.errors.lastName?.message}
+        fieldName="lastName"
+      >
         <TextField
           sx={{ width: "100%" }}
           placeholder="Enter your last name"
           {...form.register("lastName")}
         />
-      </Box>
-      <Box sx={labelAndInputDiv}>
-        <label htmlFor="email">Your email adress</label>
+      </FormField>
+
+      <FormField
+        labelText="Your email adress"
+        errorText={form.formState.errors.email?.message}
+        fieldName="email"
+      >
         <TextField
           sx={{ width: "100%" }}
           placeholder="Enter your email adress"
           type="email"
           {...form.register("email")}
         />
-        <p>{form.formState.errors.email?.message}</p>
-      </Box>
+      </FormField>
       <Box sx={buttonsDiv}>
         <Button fullWidth variant="contained" onClick={() => nextStep()}>
           Next
