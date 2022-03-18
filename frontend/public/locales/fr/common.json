@@ -1,3 +1,8 @@
 {
-    "hello": "salut"
+    "next": "Suivant",
+    "previous": "Précédent",
+    "back": "Retour",
+    "cancel": "Annuler",
+    "submit": "Envoyer",
+    "complete": "Compléter"
 }

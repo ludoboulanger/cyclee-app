@@ -1,0 +1,40 @@
+{
+    "errors":{
+        "firstName":{
+            "tooLong": "Please enter a maximum of 32 characters",
+            "wrongFormat" : "You first name can only contain letters"
+        },
+        "lastName":{
+            "tooLong": "Please enter a maximum of 32 characters",
+            "wrongFormat" : "You last name can only contain letters"
+        },
+        "email":{
+            "tooLong": "Please enter a maximum of 128 characters",
+            "wrongFormat" : "Please enter a valid email address"
+        },
+        "password":{
+            "tooLong": "Please enter a maximum of 32 characters",
+            "wrongFormat" : "Your password must contain at least one number, one letter and one special character"
+        },
+        "passwordConfirm": {
+            "doesNotMatch": "Your passwords do not match"
+        },
+        "common":{
+            "required": "Please enter a value"
+        }
+    },
+    "labels":{
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "password": "Password",
+        "passwordConfirm": "Password confirmation"
+    },
+    "placeholders":{
+        "firstName": "Enter your first name",
+        "lastName": "Enter your last name",
+        "email": "Enter your email address",
+        "password": "Enter your password",
+        "passwordConfirm": "Confirm your password"
+    }
+}

@@ -1,11 +1,12 @@
 import { Button, LinearProgress, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { useTranslation } from "next-i18next";
 import React from "react";
 import FormField from "../../../components/FormField";
 import TextField from "../../../components/TextField";
-import { FormFields } from "../FormFields";
+import { FormFields } from "../FormSchema";
 import FormPageProps from "./FormPageProps";
-import { buttonsDiv, labelAndInputDiv } from "./styles";
+import { buttonsDiv } from "./styles";
 
 export default function Page1({
   progress,
@@ -13,7 +14,8 @@ export default function Page1({
   cancel,
   nextStep,
 }: FormPageProps<FormFields>) {
-  console.log("Page1");
+  const { t } = useTranslation("signup");
+
   return (
     <>
       <Typography align="center" variant="h2">
@@ -25,44 +27,44 @@ export default function Page1({
         sx={{ width: "100%" }}
       />
       <FormField
-        labelText="Your first Name"
-        errorText={form.formState.errors.firstName?.message}
+        labelText={t("labels.firstName")}
+        errorText={t(form.formState.errors.firstName?.message || "")}
         fieldName="firstName"
       >
         <TextField
           sx={{ width: "100%" }}
           {...form.register("firstName")}
-          placeholder="Enter your first name"
+          placeholder={t("placeholders.lastName")}
         />
       </FormField>
 
       <FormField
-        labelText="Your last Name"
-        errorText={form.formState.errors.lastName?.message}
+        labelText={t("labels.lastName")}
+        errorText={t(form.formState.errors.lastName?.message || "")}
         fieldName="lastName"
       >
         <TextField
           sx={{ width: "100%" }}
-          placeholder="Enter your last name"
+          placeholder={t("placeholders.lastName")}
           {...form.register("lastName")}
         />
       </FormField>
 
       <FormField
-        labelText="Your email adress"
-        errorText={form.formState.errors.email?.message}
+        labelText={t("labels.email")}
+        errorText={t(form.formState.errors.email?.message || "")}
         fieldName="email"
       >
         <TextField
           sx={{ width: "100%" }}
-          placeholder="Enter your email adress"
+          placeholder={t("placeholders.email")}
           type="email"
           {...form.register("email")}
         />
       </FormField>
       <Box sx={buttonsDiv}>
         <Button fullWidth variant="contained" onClick={() => nextStep()}>
-          Next
+          {t("common:next")}
         </Button>
         <Button
           fullWidth
@@ -70,7 +72,7 @@ export default function Page1({
           sx={{ backgroundColor: "primary.light", color: "primary.main" }}
           onClick={() => cancel()}
         >
-          Cancel
+          {t("common:cancel")}
         </Button>
       </Box>
     </>

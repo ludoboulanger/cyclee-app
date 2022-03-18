@@ -1,8 +1,6 @@
 import { Box, styled } from "@mui/system";
 import React, { useMemo, useState } from "react";
-import { useForm, UseFormReturn } from "react-hook-form";
-import * as zod from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { UseFormReturn } from "react-hook-form";
 import { useRouter } from "next/router";
 import FormPageProps from "./formPages/FormPageProps";
 const HorizontalForm = styled("form")({
@@ -26,8 +24,6 @@ export default function FormController<FormFieldsType>({
   pages,
   form,
 }: FormControllerProps<FormFieldsType>) {
-  console.log("FormController");
-
   const router = useRouter();
   const onSubmit = form.handleSubmit((data) => console.log(data));
 

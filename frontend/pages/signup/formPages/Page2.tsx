@@ -1,11 +1,11 @@
 import { Box, Button, LinearProgress, Typography } from "@mui/material";
+import { useTranslation } from "next-i18next";
 import React, { useEffect, useMemo } from "react";
-import { UseFormRegister } from "react-hook-form";
 import FormField from "../../../components/FormField";
 import TextField from "../../../components/TextField";
-import { FormFields } from "../FormFields";
+import { FormFields } from "../FormSchema";
 import FormPageProps from "./FormPageProps";
-import { buttonsDiv, labelAndInputDiv } from "./styles";
+import { buttonsDiv } from "./styles";
 
 export default function Page2({
   progress,
@@ -22,7 +22,7 @@ export default function Page2({
       return "Welcome to Cyclee";
     }
   }, [firstName]);
-
+  const { t } = useTranslation("signup");
   useEffect(() => {
     console.log(form.formState.errors);
   }, [form.formState.errors]);
@@ -38,30 +38,30 @@ export default function Page2({
         sx={{ width: "100%" }}
       />
       <FormField
-        labelText="Your password"
-        errorText={form.formState.errors.password?.message}
+        labelText={t("labels.password")}
+        errorText={t(form.formState.errors.password?.message || "")}
         fieldName="password"
       >
         <TextField
           sx={{ width: "100%" }}
           {...form.register("password")}
-          placeholder="Enter your password"
+          placeholder={t("placeholders.password")}
         />
       </FormField>
       <FormField
-        labelText="Confirm your password"
-        errorText={form.formState.errors.passwordConfirm?.message}
+        labelText={t("labels.passwordConfirm")}
+        errorText={t(form.formState.errors.passwordConfirm?.message || "")}
         fieldName="passwordConfirm"
       >
         <TextField
           sx={{ width: "100%" }}
-          placeholder="Confirm your password"
+          placeholder={t("placeholders.passwordConfirm")}
           {...form.register("passwordConfirm")}
         />
       </FormField>
       <Box sx={buttonsDiv}>
         <Button fullWidth variant="contained" type="submit">
-          Complete
+          {t("common:complete")}
         </Button>
         <Button
           fullWidth
@@ -69,7 +69,7 @@ export default function Page2({
           sx={{ backgroundColor: "primary.light", color: "primary.main" }}
           onClick={() => prevStep()}
         >
-          Back
+          {t("common:back")}
         </Button>
       </Box>
     </>
