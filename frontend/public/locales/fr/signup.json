@@ -1,4 +1,8 @@
 {
+    "titles":{
+        "firstPage":"Bienvenue chez Cyclee",
+        "secondPage":"Bienvenue\n{{firstName}}"
+    },
     "errors":{
         "firstName":{
             "tooLong": "Veuillez entrer un maximum de 32 caractères",

@@ -19,7 +19,7 @@ export default function Page1({
   return (
     <>
       <Typography align="center" variant="h2">
-        Welcome to Cyclee
+        {t("titles.firstPage")}
       </Typography>
       <LinearProgress
         variant="determinate"

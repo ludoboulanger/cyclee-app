@@ -14,15 +14,16 @@ export default function Page2({
   prevStep,
 }: FormPageProps<SignupFormFields>) {
   const firstName = form.watch("firstName");
+  const { t } = useTranslation("signup");
 
   const title = useMemo(() => {
-    if (firstName.length < 15) {
-      return `Welcome\n${firstName}`;
+    if (firstName.length > 0 && firstName.length < 15) {
+      return t("titles.secondPage", { firstName });
     } else {
-      return "Welcome to Cyclee";
+      return t("titles.firstPage");
     }
-  }, [firstName]);
-  const { t } = useTranslation("signup");
+  }, [firstName, t]);
+
   useEffect(() => {
     console.log(form.formState.errors);
   }, [form.formState.errors]);
