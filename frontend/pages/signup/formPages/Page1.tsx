@@ -4,8 +4,8 @@ import { useTranslation } from "next-i18next";
 import React from "react";
 import FormField from "../../../components/FormField";
 import TextField from "../../../components/TextField";
-import { FormFields } from "../FormSchema";
-import FormPageProps from "./FormPageProps";
+import { SignupFormFields } from "../SignupFormSchema";
+import FormPageProps from "../../../components/FormController/FormPageProps";
 import { buttonsDiv } from "./styles";
 
 export default function Page1({
@@ -13,7 +13,7 @@ export default function Page1({
   form,
   cancel,
   nextStep,
-}: FormPageProps<FormFields>) {
+}: FormPageProps<SignupFormFields>) {
   const { t } = useTranslation("signup");
 
   return (

@@ -24,10 +24,10 @@
         }
     },
     "labels":{
-        "firstName": "First Name",
-        "lastName": "Last Name",
-        "email": "Email",
-        "password": "Password",
+        "firstName": "Your first Name",
+        "lastName": "Your last Name",
+        "email": "Your email",
+        "password": "Your password",
         "passwordConfirm": "Password confirmation"
     },
     "placeholders":{

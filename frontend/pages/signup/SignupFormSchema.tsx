@@ -1,6 +1,6 @@
 import * as zod from "zod";
 
-export const FormSchema = zod
+export const SignupFormSchema = zod
   .object({
     firstName: zod
       .string()
@@ -33,4 +33,4 @@ export const FormSchema = zod
     message: "signup:errors.passwordConfirm.doesNotMatch",
   });
 
-export type FormFields = zod.infer<typeof FormSchema>;
+export type SignupFormFields = zod.infer<typeof SignupFormSchema>;

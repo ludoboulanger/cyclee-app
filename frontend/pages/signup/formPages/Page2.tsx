@@ -3,8 +3,8 @@ import { useTranslation } from "next-i18next";
 import React, { useEffect, useMemo } from "react";
 import FormField from "../../../components/FormField";
 import TextField from "../../../components/TextField";
-import { FormFields } from "../FormSchema";
-import FormPageProps from "./FormPageProps";
+import { SignupFormFields } from "../SignupFormSchema";
+import FormPageProps from "../../../components/FormController/FormPageProps";
 import { buttonsDiv } from "./styles";
 
 export default function Page2({
@@ -12,7 +12,7 @@ export default function Page2({
   submit,
   form,
   prevStep,
-}: FormPageProps<FormFields>) {
+}: FormPageProps<SignupFormFields>) {
   const firstName = form.watch("firstName");
 
   const title = useMemo(() => {

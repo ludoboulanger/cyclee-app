@@ -2,7 +2,7 @@ import { Box, styled } from "@mui/system";
 import React, { useMemo, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { useRouter } from "next/router";
-import FormPageProps from "./formPages/FormPageProps";
+import FormPageProps from "./FormPageProps";
 const HorizontalForm = styled("form")({
   display: "flex",
   flexDirection: "column",
