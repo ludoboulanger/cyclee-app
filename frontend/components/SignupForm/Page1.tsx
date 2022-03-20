@@ -2,10 +2,10 @@ import { Button, LinearProgress, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useTranslation } from "next-i18next";
 import React from "react";
-import FormField from "../../../components/FormField";
-import TextField from "../../../components/TextField";
-import { SignupFormFields } from "../SignupFormSchema";
-import FormPageProps from "../../../components/FormController/FormPageProps";
+import FormField from "../FormField";
+import TextField from "../TextField";
+import { SignupFormFields } from "../../schemas/signupForm";
+import FormPageProps from "../FormController/FormPageProps";
 import { buttonsDiv } from "./styles";
 
 export default function Page1({
@@ -15,6 +15,12 @@ export default function Page1({
   nextStep,
 }: FormPageProps<SignupFormFields>) {
   const { t } = useTranslation("signup");
+
+  async function onNextClicked() {
+    if (await form.trigger(["firstName", "lastName", "email"])) {
+      nextStep();
+    }
+  }
 
   return (
     <>
@@ -63,7 +69,7 @@ export default function Page1({
         />
       </FormField>
       <Box sx={buttonsDiv}>
-        <Button fullWidth variant="contained" onClick={() => nextStep()}>
+        <Button fullWidth variant="contained" onClick={onNextClicked}>
           {t("common:next")}
         </Button>
         <Button

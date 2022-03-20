@@ -1,10 +1,10 @@
 import { Box, Button, LinearProgress, Typography } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import React, { useEffect, useMemo } from "react";
-import FormField from "../../../components/FormField";
-import TextField from "../../../components/TextField";
-import { SignupFormFields } from "../SignupFormSchema";
-import FormPageProps from "../../../components/FormController/FormPageProps";
+import FormField from "../FormField";
+import TextField from "../TextField";
+import { SignupFormFields } from "../../schemas/signupForm";
+import FormPageProps from "../FormController/FormPageProps";
 import { buttonsDiv } from "./styles";
 
 export default function Page2({

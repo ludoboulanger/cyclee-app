@@ -1,7 +1,7 @@
-import Page1 from "./formPages/Page1";
-import Page2 from "./formPages/Page2";
+import Page1 from "../../components/SignupForm/Page1";
+import Page2 from "../../components/SignupForm/Page2";
 import FormController from "../../components/FormController";
-import { SignupFormSchema, SignupFormFields } from "./SignupFormSchema";
+import { SignupFormSchema, SignupFormFields } from "../../schemas/signupForm";
 import { Box } from "@mui/system";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
