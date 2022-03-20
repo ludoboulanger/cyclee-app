@@ -47,6 +47,7 @@ export default function Page2({
           sx={{ width: "100%" }}
           {...form.register("password")}
           placeholder={t("placeholders.password")}
+          type="password"
         />
       </FormField>
       <FormField
@@ -58,6 +59,7 @@ export default function Page2({
           sx={{ width: "100%" }}
           placeholder={t("placeholders.passwordConfirm")}
           {...form.register("passwordConfirm")}
+          type="password"
         />
       </FormField>
       <Box sx={buttonsDiv}>
