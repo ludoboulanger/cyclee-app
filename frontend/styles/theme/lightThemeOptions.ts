@@ -2,6 +2,11 @@ import { ThemeOptions } from '@mui/material/styles';
 import { alpha } from "@mui/material";
 
 const lightThemeOptions: ThemeOptions = {
+  typography: {
+    h1:{
+      fontSize: '3rem',
+    }
+  },
   palette: {
     mode: 'light',
     primary: {

@@ -32,6 +32,6 @@ function MyApp({Component, pageProps}: AppProps) {
       </ThemeProvider>
     </CacheProvider>
   );
-};
+}
 
 export default appWithTranslation(MyApp);
