@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import type { NextPage, NextPageContext } from 'next';
 import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
@@ -7,19 +6,8 @@ import styles from '../styles/Home.module.css';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { Example } from '../components/example_translation';
 import { Button } from '@mui/material';
+import { useRouter } from 'next/router';
 
-=======
-import type { NextPage, NextPageContext } from "next";
-import { useTranslation } from "next-i18next";
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { ContextType } from "react";
-import { Example } from "../components/example_translation";
-import { Button } from "@mui/material";
-import { useRouter } from "next/router";
->>>>>>> master
 
 const Home: NextPage = () => {
   const { t } = useTranslation("common");
@@ -98,11 +86,7 @@ const Home: NextPage = () => {
 export async function getStaticProps({ locale }: NextPageContext) {
   return {
     props: {
-<<<<<<< HEAD
-      ...(await serverSideTranslations(locale || 'en', ['common', 'example', 'navigation'])),
-=======
       ...(await serverSideTranslations(locale || "en", ["common", "example"])),
->>>>>>> master
     },
   };
 }
