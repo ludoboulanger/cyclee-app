@@ -1,0 +1,22 @@
+{
+    "navigationBar": {
+        "home": {
+            "label": "Home"
+        },
+        "message": {
+            "label": "Message"
+        },
+        "newListing": {
+            "label": "Add"
+        },
+        "favorite": {
+            "label": "Favorite"
+        },
+        "menu": {
+            "label": "Menu"
+        }
+    },
+    "searchBar": {
+        "placeholder": "Search on Cyclee"
+    }
+}

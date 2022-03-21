@@ -4,7 +4,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { ContextType } from 'react';
 import { Example } from '../components/example_translation';
 import { Button } from '@mui/material';
 
@@ -87,7 +86,7 @@ const Home: NextPage = () => {
 export async function getStaticProps({ locale } : NextPageContext) {
   return {
     props: {
-      ...(await serverSideTranslations(locale || 'en', ['common', "example"])),
+      ...(await serverSideTranslations(locale || 'en', ['common', 'example', 'navigation'])),
     },
   };
 }

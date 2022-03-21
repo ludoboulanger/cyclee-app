@@ -1,0 +1,22 @@
+{
+    "navigationBar": {
+        "home": {
+            "label": "Accueil"
+        },
+        "message": {
+            "label": "Message"
+        },
+        "newListing": {
+            "label": "Ajouter"
+        },
+        "favorite": {
+            "label": "Favoris"
+        },
+        "menu": {
+            "label": "Menu"
+        }
+    },
+    "searchBar": {
+        "placeholder": "Rechercher sur Cyclee"
+    }
+}
