@@ -1,0 +1,25 @@
+{
+    "title": "Cyclee",
+    "swiper": {
+        "newHobbies": {
+            "label": "Explore new hobbies by renting anything!"
+        },
+        "sideIncome": {
+            "label": "Make side incomes by sharing stuff that you only use often with others!"
+        },
+        "discount": {
+            "label": "Get items that are in good condition at low prices!"
+        }
+    },
+    "button": {
+        "signIn": {
+            "label": "Sign in"
+        },
+        "createAccount": {
+            "label": "Create account"
+        }
+    },
+    "createAccount": {
+        "label": "Don’t have an account yet?"
+    }
+}
