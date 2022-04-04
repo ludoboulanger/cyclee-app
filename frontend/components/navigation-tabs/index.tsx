@@ -35,24 +35,24 @@ const NavigationTabs: React.FC<{
 }> = (props) => {
     const {t} = useTranslation(['navigation']);
 
-    const [value, setValue] = useState(0);
+    const [tabIndex, setTabIndex] = useState(0);
 
     return (
-        <StyledTabs centered variant={props.variant} value={value} onChange={(e, v) => setValue(v)} aria-label="NavigationBar">
+        <StyledTabs centered variant={props.variant} value={tabIndex} onChange={(e, v) => setTabIndex(v)} aria-label="NavigationBar">
             <StyledTab 
-                icon={value === 0 ? <Home /> : <HomeOutlined />} 
+                icon={tabIndex === 0 ? <Home /> : <HomeOutlined />} 
                 label={t('navigation:navigationBar.home.label')}
             />
             <StyledTab 
-                icon={value === 1 ? <ChatBubble /> : <ChatBubbleOutline/>} 
+                icon={tabIndex === 1 ? <ChatBubble /> : <ChatBubbleOutline/>} 
                 label={t('navigation:navigationBar.message.label')} 
             />
             <StyledTab 
-                icon={value === 2 ? <AddBox /> : <AddBoxOutlined />} 
+                icon={tabIndex === 2 ? <AddBox /> : <AddBoxOutlined />} 
                 label={t('navigation:navigationBar.newListing.label')} 
             />
             <StyledTab 
-                icon={value === 3 ? <Favorite /> : <FavoriteBorderOutlined />} 
+                icon={tabIndex === 3 ? <Favorite /> : <FavoriteBorderOutlined />} 
                 label={t('navigation:navigationBar.favorite.label')} 
             />
             <StyledTab 

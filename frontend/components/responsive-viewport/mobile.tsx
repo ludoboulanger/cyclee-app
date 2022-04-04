@@ -4,7 +4,7 @@ import {useMediaQuery} from '@mui/material';
 const MAX_WIDTH = 768;
 
 const Mobile: React.FC = ({children}) => {
-  const isMobile = useMediaQuery(`(max-width:${MAX_WIDTH}px)`);
+  const isMobile = useIsMobile();
   return isMobile ? <>{children}</> : null;
 };
 

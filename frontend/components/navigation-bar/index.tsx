@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useIsMobile } from '../responsive-viewport';
 import { AppBar, styled, Toolbar } from '@mui/material';
 import SearchBar from '../search-bar';
-import Logo from './logo.svg';
+import Logo from '../../public/assets/logo/logo.svg';
 import NavigationTabs, { TabsVariant } from '../navigation-tabs';
 
 const StyledAppBar = styled(AppBar)({

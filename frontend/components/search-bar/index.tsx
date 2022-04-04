@@ -32,17 +32,16 @@ const SearchBar: React.FC = () => {
 
     return (
         <StyledSearchContainer>
-            {!minimalSearchBar ?
-                <FormControl>
-                    <StyledOutlineInput 
-                        placeholder={t('navigation:searchBar.placeholder')}
-                        startAdornment={<StyledSearchIcon/>}
-                    />
-                </FormControl>
-            :
+            {minimalSearchBar ?
                 <StyledIconButton>
                     <StyledSearchIcon/>
                 </StyledIconButton>
+            :
+                <FormControl>
+                    <StyledOutlineInput 
+                        placeholder={t('navigation:searchBar.placeholder')}
+                        startAdornment={<StyledSearchIcon/>}/>
+                </FormControl>
             }
         </StyledSearchContainer>
     );

@@ -12,7 +12,7 @@ import '../styles/globals.css';
 import {appWithTranslation} from 'next-i18next';
 import '../firebase.config';
 import BottomNavigationBar from '../components/bottom-navigation-bar';
-import { useIsMobile } from '../components/responsive-viewport';
+import { Mobile } from '../components/responsive-viewport';
 import NavigationBar from '../components/navigation-bar';
 
 const clientSideEmotionCache = createEmotionCache();
@@ -20,7 +20,6 @@ const clientSideEmotionCache = createEmotionCache();
 const lightTheme = createTheme(lightThemeOptions);
 
 function MyApp({Component, pageProps}: AppProps) {
-  const isMobile = useIsMobile();
 
   return (
     <CacheProvider value={clientSideEmotionCache}>
@@ -28,7 +27,9 @@ function MyApp({Component, pageProps}: AppProps) {
         <CssBaseline />
         <NavigationBar />
         <Component {...pageProps} />
-        {isMobile && <BottomNavigationBar />}
+        <Mobile>
+          <BottomNavigationBar />
+        </Mobile>
       </ThemeProvider>
     </CacheProvider>
   );
