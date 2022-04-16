@@ -19,13 +19,14 @@ const HorizontalForm = styled("form")({
 interface FormControllerProps<FormFieldsType> {
   pages: Array<React.ComponentType<FormPageProps<FormFieldsType>>>;
   form: UseFormReturn<FormFieldsType>;
+  onSubmit: (data: FormFieldsType) => void;
 }
 export default function FormController<FormFieldsType>({
   pages,
   form,
+  onSubmit,
 }: FormControllerProps<FormFieldsType>) {
   const router = useRouter();
-  const onSubmit = form.handleSubmit((data) => console.log(data));
 
   const [step, setStep] = useState(0);
 
@@ -56,7 +57,7 @@ export default function FormController<FormFieldsType>({
         height: "100%",
       }}
     >
-      <HorizontalForm onSubmit={onSubmit}>
+      <HorizontalForm onSubmit={form.handleSubmit(onSubmit)}>
         <Page
           progress={progress}
           form={form}

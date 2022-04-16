@@ -9,7 +9,6 @@ import { buttonsDiv } from "./styles";
 
 export default function Page2({
   progress,
-  submit,
   form,
   prevStep,
 }: FormPageProps<SignupFormFields>) {

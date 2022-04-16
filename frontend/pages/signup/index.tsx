@@ -7,12 +7,19 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextPageContext } from "next";
+import { useRouter } from "next/router";
 
 export default function SignUp() {
   const form = useForm<SignupFormFields>({
     resolver: zodResolver(SignupFormSchema),
     mode: "onTouched",
   });
+
+  const router = useRouter();
+
+  function onSubmit(data: SignupFormFields) {
+    console.log(data);
+  }
 
   return (
     <Box
@@ -24,7 +31,7 @@ export default function SignUp() {
         width: "100%",
       }}
     >
-      <FormController pages={[Page1, Page2]} form={form} />
+      <FormController pages={[Page1, Page2]} form={form} onSubmit={onSubmit} />
     </Box>
   );
 }

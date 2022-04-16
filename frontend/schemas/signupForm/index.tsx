@@ -22,7 +22,7 @@ export const SignupFormSchema = zod
     password: zod
       .string()
       .regex(
-        /^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
+        /^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/,
         "signup:errors.password.wrongFormat"
       )
       .max(32, "signup:errors.password.tooLong"),

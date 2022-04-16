@@ -14,7 +14,7 @@
         },
         "email":{
             "tooLong": "Veuiilez entrer un maximum de 128 caractères",
-            "wrongFormat" : "Please enter a valid email address"
+            "wrongFormat" : "Veuillez entrer une adresse email valide"
         },
         "password":{
             "tooLong": "Veuiilez entrer un maximum de 32 caractères",
