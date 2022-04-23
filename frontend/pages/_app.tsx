@@ -14,25 +14,33 @@ import '../firebase.config';
 import BottomNavigationBar from '../components/bottom-navigation-bar';
 import { Mobile } from '../components/responsive-viewport';
 import NavigationBar from '../components/navigation-bar';
+import MobileLandingPage from '../components/landing-page';
 
 const clientSideEmotionCache = createEmotionCache();
 
 const lightTheme = createTheme(lightThemeOptions);
 
-function MyApp({Component, pageProps}: AppProps) {
+const MyApp = ({Component, pageProps}: AppProps) => {
+  const isUserConnected = false;
 
   return (
     <CacheProvider value={clientSideEmotionCache}>
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
-        <NavigationBar />
-        <Component {...pageProps} />
-        <Mobile>
-          <BottomNavigationBar />
-        </Mobile>
+        {isUserConnected ? 
+          <>
+            <NavigationBar />
+            <Component {...pageProps} />
+            <Mobile>
+              <BottomNavigationBar />
+            </Mobile>
+          </>
+        :
+          <MobileLandingPage/>
+        }
       </ThemeProvider>
     </CacheProvider>
   );
-}
+};
 
 export default appWithTranslation(MyApp);

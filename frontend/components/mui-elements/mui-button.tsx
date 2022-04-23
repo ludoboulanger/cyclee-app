@@ -13,8 +13,13 @@ const StyledButton = styled(Button)<{buttontype: string}>(({theme, buttontype}) 
     }
 }));
 
-const MUIButton: React.FC<{title: string, type: 'primary' | 'secondary', onClick: () => void}> = (props) => {
-    const variant = props.type;
+const MUIButton: React.FC<{
+    title: string, 
+    buttonType: 'primary' | 'secondary', 
+    onClick: () => void,
+    type?: 'submit'
+}> = (props) => {
+    const variant = props.buttonType;
 
     return(
         <StyledButton 
@@ -22,7 +27,8 @@ const MUIButton: React.FC<{title: string, type: 'primary' | 'secondary', onClick
             disableRipple
             disableElevation
             onClick={props.onClick}
-            buttontype={props.type}>
+            buttontype={props.buttonType}
+            type={props.type}>
                 {props.title}
         </StyledButton>
     );
