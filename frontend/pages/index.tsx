@@ -1,8 +1,9 @@
-import type { NextPage, NextPageContext } from "next";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
+import type { NextPage, NextPageContext } from 'next';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useRouter } from 'next/router';
 import LandingPage from "../components/landing-page";
+
 
 const Home: NextPage = () => {
   const { t } = useTranslation("common");
@@ -15,7 +16,7 @@ const Home: NextPage = () => {
 export async function getStaticProps({ locale }: NextPageContext) {
   return {
     props: {
-      ...(await serverSideTranslations(locale || "en", ["common", "example", "landing"])),
+      ...(await serverSideTranslations(locale || "en", ["common", "example", "landing", "navigation"])),
     },
   };
 }
