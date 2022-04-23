@@ -47,17 +47,15 @@ const LandingPage: React.FC = () => {
             <ButtonContainer>
                 <MUIButton 
                     title={t('landing:button.signIn.label')} 
-                    type='primary' 
-                    // TODO: Correct this link to open the sign in form process
-                    onClick={() => console.log('Sign in')}/>
+                    type='primary'
+                    onClick={() => window.alert('TODO: Correct this link to open the sign in form process')}/>
 
                 <CreateAccountLabel>{t('landing:createAccount.label')}</CreateAccountLabel>
 
                 <MUIButton 
                     title={t('landing:button.createAccount.label')}
                     type='secondary' 
-                    // TODO: Correct this link to open the sign up form process
-                    onClick={() => console.log('Create account')}/>
+                    onClick={() => window.alert('TODO: Correct this link to open the sign up form process')}/>
             </ButtonContainer>
 
         </Container>
