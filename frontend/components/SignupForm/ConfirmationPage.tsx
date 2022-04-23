@@ -1,4 +1,4 @@
-import { Box, styled } from "@mui/system";
+import { styled } from "@mui/system";
 import { LinearProgress, Typography } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import { useMemo } from "react";
@@ -15,8 +15,11 @@ const HorizontalDiv = styled("div")({
   maxHeight: "800px",
   width: "100%",
 });
-
-export default function ConfirmationPage({ firstName, email }) {
+interface PropsType {
+  firstName: string;
+  email: string;
+}
+const ConfirmationPage: React.FC<PropsType> = ({ firstName, email }) => {
   const { t } = useTranslation("signup");
 
   const title = useMemo(() => {
@@ -42,4 +45,6 @@ export default function ConfirmationPage({ firstName, email }) {
       </Typography>
     </HorizontalDiv>
   );
-}
+};
+
+export default ConfirmationPage;

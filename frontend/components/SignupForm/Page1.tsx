@@ -1,18 +1,17 @@
 import { Button, LinearProgress, Typography } from "@mui/material";
-import { Box } from "@mui/system";
 import { useTranslation } from "next-i18next";
 import React from "react";
 import FormField from "../FormField";
 import TextField from "../TextField";
 import { SignupFormFields } from "../../schemas/signupForm";
 import FormPageProps from "../FormController/FormPageProps";
-import { buttonsDiv } from "./styles";
+import { ButtonsDiv } from "./styles";
 
-export default function Page1({
+const Page1: React.FC<FormPageProps<SignupFormFields>> = ({
   form,
   cancel,
   nextStep,
-}: FormPageProps<SignupFormFields>) {
+}) => {
   const { t } = useTranslation("signup");
 
   async function onNextClicked() {
@@ -63,7 +62,7 @@ export default function Page1({
           {...form.register("email")}
         />
       </FormField>
-      <Box sx={buttonsDiv}>
+      <ButtonsDiv>
         <Button fullWidth variant="contained" onClick={onNextClicked}>
           {t("common:next")}
         </Button>
@@ -75,7 +74,9 @@ export default function Page1({
         >
           {t("common:cancel")}
         </Button>
-      </Box>
+      </ButtonsDiv>
     </>
   );
-}
+};
+
+export default Page1;

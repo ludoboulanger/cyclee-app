@@ -1,13 +1,8 @@
-export const labelAndInputDiv = {
-    display: "flex",
-    flexDirection: "column",
-    gap: "6px",
-    width: "100%",
-  };
+import { styled } from "@mui/system";
 
-  export const buttonsDiv={
+  export const ButtonsDiv= styled('div')({
     display: "flex",
     flexDirection: "column",
     gap: "9px",
     width: "100%",
-  };
+  });

@@ -1,13 +1,13 @@
 import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, styled } from "@mui/system";
 import React from "react";
 
-export const containerStyle = {
+const Container = styled("div")({
   display: "flex",
   flexDirection: "column",
   gap: "6px",
   width: "100%",
-};
+});
 
 interface Props {
   children: React.ReactNode;
@@ -23,7 +23,7 @@ export default function FormField({
   fieldName,
 }: Props) {
   return (
-    <Box sx={containerStyle}>
+    <Container>
       <label htmlFor={fieldName}>{labelText}</label>
       {children}
       {errorText && (
@@ -31,6 +31,6 @@ export default function FormField({
           {errorText}
         </Typography>
       )}
-    </Box>
+    </Container>
   );
 }

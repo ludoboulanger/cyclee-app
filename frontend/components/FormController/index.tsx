@@ -1,4 +1,4 @@
-import { Box, styled } from "@mui/system";
+import { styled } from "@mui/system";
 import React, { useMemo, useState } from "react";
 import { SubmitHandler, UseFormReturn } from "react-hook-form";
 import { useRouter } from "next/router";
@@ -16,6 +16,14 @@ const HorizontalForm = styled("form")({
   maxHeight: "800px",
   width: "100%",
 });
+
+const Container = styled("div")({
+  display: "flex",
+  justifyContent: "center",
+  width: "100%",
+  height: "100%",
+});
+
 interface FormControllerProps<FormFieldsType> {
   pages: Array<React.ComponentType<FormPageProps<FormFieldsType>>>;
   form: UseFormReturn<FormFieldsType>;
@@ -45,14 +53,7 @@ export default function FormController<FormFieldsType>({
   const Page = useMemo(() => pages[step], [step, pages]);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        width: "100%",
-        height: "100%",
-      }}
-    >
+    <Container>
       <HorizontalForm onSubmit={form.handleSubmit(onSubmit)}>
         <Page
           form={form}
@@ -62,6 +63,6 @@ export default function FormController<FormFieldsType>({
           submit={onSubmit}
         />
       </HorizontalForm>
-    </Box>
+    </Container>
   );
 }

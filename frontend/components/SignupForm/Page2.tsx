@@ -1,16 +1,16 @@
-import { Box, Button, LinearProgress, Typography } from "@mui/material";
+import { Button, LinearProgress, Typography } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import React, { useEffect, useMemo } from "react";
 import FormField from "../FormField";
 import TextField from "../TextField";
 import { SignupFormFields } from "../../schemas/signupForm";
 import FormPageProps from "../FormController/FormPageProps";
-import { buttonsDiv } from "./styles";
+import { ButtonsDiv } from "./styles";
 
-export default function Page2({
+const Page2: React.FC<FormPageProps<SignupFormFields>> = ({
   form,
   prevStep,
-}: FormPageProps<SignupFormFields>) {
+}) => {
   const firstName = form.watch("firstName");
   const { t } = useTranslation("signup");
 
@@ -56,7 +56,7 @@ export default function Page2({
           type="password"
         />
       </FormField>
-      <Box sx={buttonsDiv}>
+      <ButtonsDiv>
         <Button fullWidth variant="contained" type="submit">
           {t("common:complete")}
         </Button>
@@ -68,7 +68,9 @@ export default function Page2({
         >
           {t("common:back")}
         </Button>
-      </Box>
+      </ButtonsDiv>
     </>
   );
-}
+};
+
+export default Page2;
