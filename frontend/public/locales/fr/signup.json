@@ -40,5 +40,6 @@
         "email": "Entrez votre adresse email",
         "password": "Entrez votre mot de passe",
         "passwordConfirm": "Confirmez votre mot de passe"
-    }
+    },
+    "confirmationMessage": " Merci d'avoir rejoins Cyclee, nous avons envoyé un courriel à l'adresse {{email}}. Regarder votre boite de réception pour compléter votre inscription!"
 }

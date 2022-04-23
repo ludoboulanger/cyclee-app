@@ -8,6 +8,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextPageContext } from "next";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import ConfirmationPage from "../../components/SignupForm/confirmation";
 
 export default function SignUp() {
   const form = useForm<SignupFormFields>({
@@ -15,10 +17,12 @@ export default function SignUp() {
     mode: "onTouched",
   });
 
-  const router = useRouter();
-
+  const [formData, setFormData] = useState<SignupFormFields | undefined>(
+    undefined
+  );
   function onSubmit(data: SignupFormFields) {
     console.log(data);
+    setFormData(data);
   }
 
   return (
@@ -31,7 +35,18 @@ export default function SignUp() {
         width: "100%",
       }}
     >
-      <FormController pages={[Page1, Page2]} form={form} onSubmit={onSubmit} />
+      {formData ? (
+        <ConfirmationPage
+          email={formData.email}
+          firstName={formData.firstName}
+        />
+      ) : (
+        <FormController
+          pages={[Page1, Page2]}
+          form={form}
+          onSubmit={onSubmit}
+        />
+      )}
     </Box>
   );
 }

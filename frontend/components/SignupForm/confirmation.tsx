@@ -1,8 +1,20 @@
+import { Box, styled } from "@mui/system";
 import { LinearProgress, Typography } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import { useMemo } from "react";
-import { SignupFormFields } from "../../schemas/signupForm";
-import FormPageProps from "../../components/FormController/FormPageProps";
+
+const HorizontalDiv = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  height: "100%",
+  alignItems: "center",
+  paddingTop: "50px",
+  paddingBottom: "50px",
+  paddingLeft: "70px",
+  paddingRight: "70px",
+  maxHeight: "800px",
+  width: "100%",
+});
 
 export default function ConfirmationPage({ firstName, email }) {
   const { t } = useTranslation("signup");
@@ -16,19 +28,18 @@ export default function ConfirmationPage({ firstName, email }) {
   }, [firstName, t]);
 
   return (
-    <>
+    <HorizontalDiv>
       <Typography align="center" variant="h2">
         {title}
       </Typography>
       <LinearProgress
         variant="determinate"
         value={100}
-        sx={{ width: "100%" }}
+        sx={{ width: "100%", marginTop: "57px", marginBottom: "86px" }}
       />
       <Typography align="center" variant="body1">
-        Thank you for joining Cyclee, we sent an email to
-        {email}. Check your inbox to complete the sign up process!
+        {t("confirmationMessage", { email })}
       </Typography>
-    </>
+    </HorizontalDiv>
   );
 }
