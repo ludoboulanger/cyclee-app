@@ -1,5 +1,5 @@
-import Page1 from "../../components/SignupForm/Page1";
-import Page2 from "../../components/SignupForm/Page2";
+import PersonnalInformations from "../../components/SignupForm/PersonnalInformationsPage";
+import Password from "../../components/SignupForm/PasswordPage";
 import FormController from "../../components/FormController";
 import { SignupFormSchema, SignupFormFields } from "../../schemas/signupForm";
 import { useForm } from "react-hook-form";
@@ -41,7 +41,7 @@ const SignUp: React.FC = () => {
         />
       ) : (
         <FormController
-          pages={[Page1, Page2]}
+          pages={[PersonnalInformations, Password]}
           form={form}
           onSubmit={onSubmit}
         />

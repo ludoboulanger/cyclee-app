@@ -3,43 +3,45 @@
         "firstPage":"Bienvenue chez Cyclee",
         "secondPage":"Bienvenue\n{{firstName}}"
     },
-    "errors":{
-        "firstName":{
-            "tooLong": "Veuillez entrer un maximum de 32 caractères",
-            "wrongFormat" : "Votre prénom ne peut contenir que des lettres"
+    "formFields":{
+        "errors":{
+            "firstName":{
+                "tooLong": "Veuillez entrer un maximum de 32 caractères",
+                "wrongFormat" : "Votre prénom ne peut contenir que des lettres"
+            },
+            "lastName":{
+                "tooLong": "Veullez entrer un maximum de 32 caractères",
+                "wrongFormat" : "Votre nom ne peut contenir que des lettres"
+            },
+            "email":{
+                "tooLong": "Veuillez entrer un maximum de 128 caractères",
+                "wrongFormat" : "Veuillez entrer une adresse email valide"
+            },
+            "password":{
+                "tooLong": "Veuillez entrer un maximum de 32 caractères",
+                "wrongFormat" : "Votre mot de passe doit contenir au moins 8 caractères et être composé d'au minimum une lettre, un chiffre et un caractère spécial"
+            },
+            "passwordConfirm": {
+                "doesNotMatch": "Vos mots de passe ne correspondent pas"
+            },
+            "common":{
+                "required": "Veuillez remplir ce champ"
+            }
         },
-        "lastName":{
-            "tooLong": "Veullez entrer un maximum de 32 caractères",
-            "wrongFormat" : "Votre nom ne peut contenir que des lettres"
+        "labels":{
+            "firstName": "Prénom",
+            "lastName": "Nom",
+            "email": "Adresse email",
+            "password": "Mot de passe",
+            "passwordConfirm": "Confirmation du mot de passe"
         },
-        "email":{
-            "tooLong": "Veuiilez entrer un maximum de 128 caractères",
-            "wrongFormat" : "Veuillez entrer une adresse email valide"
-        },
-        "password":{
-            "tooLong": "Veuiilez entrer un maximum de 32 caractères",
-            "wrongFormat" : "Votre mot de passe doit contenir au moins 8 caractères et être composé d'au minimum une lettre, un chiffre et un caractère spécial"
-        },
-        "passwordConfirm": {
-            "doesNotMatch": "Vos mots de passe ne correspondent pas"
-        },
-        "common":{
-            "required": "Veuillez remplir ce champ"
+        "placeholders":{
+            "firstName": "Entrez votre prénom",
+            "lastName": "Entrez votre nom",
+            "email": "Entrez votre adresse email",
+            "password": "Entrez votre mot de passe",
+            "passwordConfirm": "Confirmez votre mot de passe"
         }
-    },
-    "labels":{
-        "firstName": "Prénom",
-        "lastName": "Nom",
-        "email": "Adresse email",
-        "password": "Mot de passe",
-        "passwordConfirm": "Confirmation du mot de passe"
-    },
-    "placeholders":{
-        "firstName": "Entrez votre prénom",
-        "lastName": "Entrez votre nom",
-        "email": "Entrez votre adresse email",
-        "password": "Entrez votre mot de passe",
-        "passwordConfirm": "Confirmez votre mot de passe"
     },
     "confirmationMessage": " Merci d'avoir rejoins Cyclee, nous avons envoyé un courriel à l'adresse {{email}}. Regarder votre boite de réception pour compléter votre inscription!"
 }

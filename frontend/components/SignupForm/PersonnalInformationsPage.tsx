@@ -2,12 +2,11 @@ import { Button, LinearProgress, Typography } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import React from "react";
 import FormField from "../FormField";
-import TextField from "../TextField";
 import { SignupFormFields } from "../../schemas/signupForm";
 import FormPageProps from "../FormController/FormPageProps";
-import { ButtonsDiv } from "./styles";
+import { ButtonsDiv, FullWidthTextField } from "./commonStyles";
 
-const Page1: React.FC<FormPageProps<SignupFormFields>> = ({
+const PersonnalInformations: React.FC<FormPageProps<SignupFormFields>> = ({
   form,
   cancel,
   nextStep,
@@ -27,37 +26,34 @@ const Page1: React.FC<FormPageProps<SignupFormFields>> = ({
       </Typography>
       <LinearProgress variant="determinate" value={33} sx={{ width: "100%" }} />
       <FormField
-        labelText={t("labels.firstName")}
+        labelText={t("formfields.labels.firstName")}
         errorText={t(form.formState.errors.firstName?.message || "")}
         fieldName="firstName"
       >
-        <TextField
-          sx={{ width: "100%" }}
+        <FullWidthTextField
           {...form.register("firstName")}
-          placeholder={t("placeholders.lastName")}
+          placeholder={t("formfields.placeholders.lastName")}
         />
       </FormField>
 
       <FormField
-        labelText={t("labels.lastName")}
+        labelText={t("formfields.labels.lastName")}
         errorText={t(form.formState.errors.lastName?.message || "")}
         fieldName="lastName"
       >
-        <TextField
-          sx={{ width: "100%" }}
-          placeholder={t("placeholders.lastName")}
+        <FullWidthTextField
+          placeholder={t("formfields.placeholders.lastName")}
           {...form.register("lastName")}
         />
       </FormField>
 
       <FormField
-        labelText={t("labels.email")}
+        labelText={t("formfields.labels.email")}
         errorText={t(form.formState.errors.email?.message || "")}
         fieldName="email"
       >
-        <TextField
-          sx={{ width: "100%" }}
-          placeholder={t("placeholders.email")}
+        <FullWidthTextField
+          placeholder={t("formfields.placeholders.email")}
           type="email"
           {...form.register("email")}
         />
@@ -79,4 +75,4 @@ const Page1: React.FC<FormPageProps<SignupFormFields>> = ({
   );
 };
 
-export default Page1;
+export default PersonnalInformations;

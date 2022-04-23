@@ -1,4 +1,5 @@
 import { styled } from "@mui/system";
+import TextField from "../TextField";
 
   export const ButtonsDiv= styled('div')({
     display: "flex",
@@ -6,3 +7,5 @@ import { styled } from "@mui/system";
     gap: "9px",
     width: "100%",
   });
+
+  export const FullWidthTextField = styled(TextField)({width: "100%"});

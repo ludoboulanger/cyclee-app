@@ -2,12 +2,11 @@ import { Button, LinearProgress, Typography } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import React, { useEffect, useMemo } from "react";
 import FormField from "../FormField";
-import TextField from "../TextField";
 import { SignupFormFields } from "../../schemas/signupForm";
 import FormPageProps from "../FormController/FormPageProps";
-import { ButtonsDiv } from "./styles";
+import { ButtonsDiv, FullWidthTextField } from "./commonStyles";
 
-const Page2: React.FC<FormPageProps<SignupFormFields>> = ({
+const Password: React.FC<FormPageProps<SignupFormFields>> = ({
   form,
   prevStep,
 }) => {
@@ -33,25 +32,23 @@ const Page2: React.FC<FormPageProps<SignupFormFields>> = ({
       </Typography>
       <LinearProgress variant="determinate" value={66} sx={{ width: "100%" }} />
       <FormField
-        labelText={t("labels.password")}
+        labelText={t("formfields.labels.password")}
         errorText={t(form.formState.errors.password?.message || "")}
         fieldName="password"
       >
-        <TextField
-          sx={{ width: "100%" }}
+        <FullWidthTextField
           {...form.register("password")}
-          placeholder={t("placeholders.password")}
+          placeholder={t("formfields.placeholders.password")}
           type="password"
         />
       </FormField>
       <FormField
-        labelText={t("labels.passwordConfirm")}
+        labelText={t("formfields.labels.passwordConfirm")}
         errorText={t(form.formState.errors.passwordConfirm?.message || "")}
         fieldName="passwordConfirm"
       >
-        <TextField
-          sx={{ width: "100%" }}
-          placeholder={t("placeholders.passwordConfirm")}
+        <FullWidthTextField
+          placeholder={t("formfields.placeholders.passwordConfirm")}
           {...form.register("passwordConfirm")}
           type="password"
         />
@@ -73,4 +70,4 @@ const Page2: React.FC<FormPageProps<SignupFormFields>> = ({
   );
 };
 
-export default Page2;
+export default Password;
