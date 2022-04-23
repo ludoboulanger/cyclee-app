@@ -1,6 +1,6 @@
 import { Box, styled } from "@mui/system";
 import React, { useMemo, useState } from "react";
-import { UseFormReturn } from "react-hook-form";
+import { SubmitHandler, UseFormReturn } from "react-hook-form";
 import { useRouter } from "next/router";
 import FormPageProps from "./FormPageProps";
 const HorizontalForm = styled("form")({
@@ -19,7 +19,7 @@ const HorizontalForm = styled("form")({
 interface FormControllerProps<FormFieldsType> {
   pages: Array<React.ComponentType<FormPageProps<FormFieldsType>>>;
   form: UseFormReturn<FormFieldsType>;
-  onSubmit: (data: FormFieldsType) => void;
+  onSubmit: SubmitHandler<FormFieldsType>;
 }
 export default function FormController<FormFieldsType>({
   pages,
@@ -43,10 +43,6 @@ export default function FormController<FormFieldsType>({
   }
 
   const Page = useMemo(() => pages[step], [step, pages]);
-  const progress = useMemo(
-    () => ((step + 1) / pages.length) * 100,
-    [step, pages]
-  );
 
   return (
     <Box
@@ -59,7 +55,6 @@ export default function FormController<FormFieldsType>({
     >
       <HorizontalForm onSubmit={form.handleSubmit(onSubmit)}>
         <Page
-          progress={progress}
           form={form}
           nextStep={nextStep}
           prevStep={prevStep}

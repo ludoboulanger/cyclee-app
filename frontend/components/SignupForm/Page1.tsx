@@ -9,7 +9,6 @@ import FormPageProps from "../FormController/FormPageProps";
 import { buttonsDiv } from "./styles";
 
 export default function Page1({
-  progress,
   form,
   cancel,
   nextStep,
@@ -27,11 +26,7 @@ export default function Page1({
       <Typography align="center" variant="h2">
         {t("titles.firstPage")}
       </Typography>
-      <LinearProgress
-        variant="determinate"
-        value={progress}
-        sx={{ width: "100%" }}
-      />
+      <LinearProgress variant="determinate" value={33} sx={{ width: "100%" }} />
       <FormField
         labelText={t("labels.firstName")}
         errorText={t(form.formState.errors.firstName?.message || "")}

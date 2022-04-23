@@ -8,7 +8,6 @@ import FormPageProps from "../FormController/FormPageProps";
 import { buttonsDiv } from "./styles";
 
 export default function Page2({
-  progress,
   form,
   prevStep,
 }: FormPageProps<SignupFormFields>) {
@@ -32,11 +31,7 @@ export default function Page2({
       <Typography align="center" variant="h2">
         {title}
       </Typography>
-      <LinearProgress
-        variant="determinate"
-        value={progress}
-        sx={{ width: "100%" }}
-      />
+      <LinearProgress variant="determinate" value={66} sx={{ width: "100%" }} />
       <FormField
         labelText={t("labels.password")}
         errorText={t(form.formState.errors.password?.message || "")}
