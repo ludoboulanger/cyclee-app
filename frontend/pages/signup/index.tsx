@@ -1,5 +1,5 @@
-import PersonnalInformations from "../../components/SignupForm/PersonnalInformationsPage";
-import Password from "../../components/SignupForm/PasswordPage";
+import PersonnalInformationsForm from "../../components/SignupForm/PersonnalInformationsPage";
+import PasswordForm from "../../components/SignupForm/PasswordPage";
 import FormController from "../../components/FormController";
 import { SignupFormSchema, SignupFormFields } from "../../schemas/signupForm";
 import { useForm } from "react-hook-form";
@@ -9,7 +9,7 @@ import { NextPageContext } from "next";
 import { useState } from "react";
 import ConfirmationPage from "../../components/SignupForm/ConfirmationPage";
 import styled from "@emotion/styled";
-
+import { useAuth } from "../../services/auth";
 const Container = styled("div")({
   maxWidth: "500px",
   height: "100%",
@@ -23,25 +23,24 @@ const SignUp: React.FC = () => {
     resolver: zodResolver(SignupFormSchema),
     mode: "onTouched",
   });
+  const auth = useAuth();
 
-  const [formData, setFormData] = useState<SignupFormFields | undefined>(
-    undefined
-  );
   function onSubmit(data: SignupFormFields) {
-    console.log(data);
-    setFormData(data);
+    auth.signUp(data.email, data.password).catch((error) => {
+      alert(error);
+    });
   }
 
   return (
     <Container>
-      {formData ? (
+      {auth.user ? (
         <ConfirmationPage
-          email={formData.email}
-          firstName={formData.firstName}
+          email={auth.user.email}
+          firstName={auth.user.displayName}
         />
       ) : (
         <FormController
-          pages={[PersonnalInformations, Password]}
+          pages={[PersonnalInformationsForm, PasswordForm]}
           form={form}
           onSubmit={onSubmit}
         />
