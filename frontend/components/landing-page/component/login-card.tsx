@@ -1,6 +1,7 @@
 import { Divider, styled } from '@mui/material';
 import React from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import ActionButton from '../../mui-elements/action-button';
 import MUIButton from '../../mui-elements/mui-button';
 import Input from '../../rhf-elements/input';
 
@@ -13,7 +14,8 @@ const Card = styled('div')({
     borderRadius: '10px',
     boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
     width: '400px',
-    padding: '16px'
+    padding: '16px',
+    textAlign: 'center'
 });
 
 const FormContainer = styled('div')({
@@ -70,18 +72,29 @@ const LoginCard: React.FC = () => {
                         <MUIButton 
                             type='submit' 
                             onClick={form.handleSubmit(onSubmit)} 
-                            title={'Submit'} 
-                            buttonType={'primary'} />
+                            muiButtonType='primary'
+                        >
+                            {'Log In'} 
+                        </MUIButton>
 
-                        <StyledDivider />
-
-                        <MUIButton
-                            onClick={() => window.alert('TODO: Open Create account form process')} 
-                            title={'Create new account'} 
-                            buttonType={'secondary'} />
                     </FormContainer>
                 </form>
             </FormProvider>
+
+            <InvisibleDivider />
+
+            <ActionButton onClick={() => window.alert('TODO: Open Forgot password process')}>
+                {'Forgot password?'}
+            </ActionButton>
+
+            <StyledDivider />
+
+            <MUIButton
+                onClick={() => window.alert('TODO: Open Create account form process')} 
+                muiButtonType={'secondary'}
+            >
+                    {'Create new account'} 
+            </MUIButton>
         </Card>
     );
 };

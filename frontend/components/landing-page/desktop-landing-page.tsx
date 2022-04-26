@@ -2,12 +2,14 @@ import { alpha, Container, styled } from "@mui/material";
 import Logo from '../../public/assets/logo/logo.svg';
 import { useTranslation } from "next-i18next";
 import LoginCard from "./component/login-card";
+import Footer from "../footer";
 
 const GridContainer = styled('div')({
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     height: '500px',
-    padding: '100px 0'
+    padding: '100px 0',
+    marginBottom: '100px'
 });
 
 const PresentationContainer = styled('div')({
@@ -34,13 +36,13 @@ const Title = styled('p')(({theme}) => ({
 
 const Text = styled('p')({
     fontSize: '25px',
-    fontWeight: '700',
-    width: '500px'
+    width: '500px',
+    marginTop: '-50px'
 });
 
 const GreenSection = styled('div')(({theme}) => ({
     backgroundColor: alpha(theme.palette.primary.main, 0.2),
-    height: '300px'
+    height: '600px'
 }));
 
 const DesktopLandingPage: React.FC = () => {
@@ -59,9 +61,7 @@ const DesktopLandingPage: React.FC = () => {
                     </LoginContainer>
                 </GridContainer>
             </Container>
-            <GreenSection>
-                
-            </GreenSection>
+            <Footer></Footer>
         </>
     );
 };

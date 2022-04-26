@@ -46,16 +46,20 @@ const MobileLandingPage: React.FC = () => {
 
             <ButtonContainer>
                 <MUIButton 
-                    title={t('landing:button.signIn.label')} 
-                    buttonType='primary'
-                    onClick={() => window.alert('TODO: Correct this link to open the sign in form process')}/>
+                    muiButtonType='primary'
+                    onClick={() => window.alert('TODO: Correct this link to open the sign in form process')}
+                >
+                    {t('landing:button.signIn.label')}
+                </MUIButton>
 
                 <CreateAccountLabel>{t('landing:createAccount.label')}</CreateAccountLabel>
 
                 <MUIButton 
-                    title={t('landing:button.createAccount.label')}
-                    buttonType='secondary' 
-                    onClick={() => window.alert('TODO: Correct this link to open the sign up form process')}/>
+                    muiButtonType='secondary' 
+                    onClick={() => window.alert('TODO: Correct this link to open the sign up form process')}
+                >
+                    {t('landing:button.createAccount.label')}
+                </MUIButton>
             </ButtonContainer>
 
         </Container>
