@@ -21,10 +21,6 @@ const Password: React.FC<FormPageProps<SignupFormFields>> = ({
     }
   }, [firstName, t]);
 
-  useEffect(() => {
-    console.log(form.formState.errors);
-  }, [form.formState.errors]);
-
   return (
     <>
       <Typography align="center" variant="h2">
