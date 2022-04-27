@@ -22,6 +22,10 @@ const lightThemeOptions: ThemeOptions = {
       light: alpha('#3CB474', 0.3),
       contrastText: '#fff'
     },
+    secondary: {	
+      main: alpha('#3CB474', 0.3),
+      contrastText: '#3CB474',
+    },
     error: {
       main: '#CC3333'
     },

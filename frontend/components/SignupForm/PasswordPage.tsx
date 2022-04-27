@@ -56,7 +56,7 @@ const Password: React.FC<FormPageProps<SignupFormFields>> = ({
         <Button
           fullWidth
           variant="contained"
-          sx={{ backgroundColor: "primary.light", color: "primary.main" }}
+          color="secondary"
           onClick={() => prevStep()}
         >
           {t("common:back")}
