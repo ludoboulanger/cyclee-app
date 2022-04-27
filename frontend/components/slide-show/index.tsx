@@ -1,9 +1,9 @@
+import React from 'react';
 import { styled } from "@mui/material";
 import {Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import { useTranslation } from "next-i18next";
 
 interface SlideShowProps {
     images: React.ReactNode[],
@@ -30,8 +30,6 @@ const Label = styled('p')({
 });
 
 const SlideShow: React.FC<SlideShowProps> = ({images, labels}) => {
-    const {t} = useTranslation('landing');
-
     return(
         <StyledSwiper
             spaceBetween={30}

@@ -14,7 +14,7 @@ import '../firebase.config';
 import BottomNavigationBar from '../components/bottom-navigation-bar';
 import { Mobile } from '../components/responsive-viewport';
 import NavigationBar from '../components/navigation-bar';
-import MobileLandingPage from '../components/landing-page';
+import LandingPage from '../components/landing-page';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -36,7 +36,7 @@ const MyApp = ({Component, pageProps}: AppProps) => {
             </Mobile>
           </>
         :
-          <MobileLandingPage/>
+          <LandingPage />
         }
       </ThemeProvider>
     </CacheProvider>

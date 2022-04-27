@@ -30,7 +30,7 @@ interface Props {
   isLoading: boolean;
 }
 
-export default function LoadingLogo({ isLoading }: Props) {
+const LoadingLogo: React.FC<Props> = ({ isLoading }) => {
   const [isAnimationEnding, setAnimationEnding] = useState(false);
   const [visible, setVisible] = useState(isLoading);
 
@@ -77,4 +77,6 @@ export default function LoadingLogo({ isLoading }: Props) {
       </Typography>
     </Box>
   );
-}
+};
+
+export default LoadingLogo;

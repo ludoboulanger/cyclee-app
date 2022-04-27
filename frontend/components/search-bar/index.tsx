@@ -1,5 +1,5 @@
 
-import * as React from 'react';
+import React from 'react';
 import { styled } from '@mui/system';
 import { FormControl, IconButton, OutlinedInput, useMediaQuery } from '@mui/material';
 import { Search } from '@mui/icons-material';

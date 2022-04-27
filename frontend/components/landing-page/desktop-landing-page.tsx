@@ -1,4 +1,5 @@
-import { alpha, Container, styled } from "@mui/material";
+import React from 'react';
+import { Container, styled } from "@mui/material";
 import Logo from '../../public/assets/logo/logo.svg';
 import { useTranslation } from "next-i18next";
 import LoginCard from "./component/login-card";
@@ -39,11 +40,6 @@ const Text = styled('p')({
     width: '500px',
     marginTop: '-50px'
 });
-
-const GreenSection = styled('div')(({theme}) => ({
-    backgroundColor: alpha(theme.palette.primary.main, 0.2),
-    height: '600px'
-}));
 
 const DesktopLandingPage: React.FC = () => {
     const {t} = useTranslation('landing');

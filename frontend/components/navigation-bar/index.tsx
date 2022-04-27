@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { useIsMobile } from '../responsive-viewport';
 import { AppBar, styled, Toolbar } from '@mui/material';
 import SearchBar from '../search-bar';
@@ -45,6 +45,7 @@ const NavigationBar: React.FC = () => {
                         <StyledLogo />
                         {!isMobile && <SearchBar />}
                     </StyledLeftContent>
+
                     <StyledRightContent mobile={isMobile.toString()}>
                         {isMobile ? 
                                 <SearchBar /> 

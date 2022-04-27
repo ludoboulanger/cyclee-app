@@ -1,3 +1,4 @@
+import React from 'react';
 import { styled } from "@mui/material";
 import NewHobbies from '../../public/assets/new-hobbies.svg';
 import SideIncome from '../../public/assets/side-income.svg';

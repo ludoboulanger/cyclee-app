@@ -15,6 +15,10 @@ import {
     Menu } from '@mui/icons-material';
 import { useTranslation } from 'next-i18next';
 
+interface Props {
+    variant: TabsVariant;
+}
+
 export enum TabsVariant {
     FullWidth = "fullWidth",
     Standard = "standard",
@@ -30,15 +34,13 @@ const StyledTab = styled(Tab)({
     fontWeight: 'lighter'
 });
 
-const NavigationTabs: React.FC<{
-    variant: TabsVariant;
-}> = (props) => {
+const NavigationTabs: React.FC<Props> = ({variant}) => {
     const {t} = useTranslation(['navigation']);
 
     const [tabIndex, setTabIndex] = useState(0);
 
     return (
-        <StyledTabs centered variant={props.variant} value={tabIndex} onChange={(e, v) => setTabIndex(v)} aria-label="NavigationBar">
+        <StyledTabs centered variant={variant} value={tabIndex} onChange={(e, v) => setTabIndex(v)} aria-label="NavigationBar">
             <StyledTab 
                 icon={tabIndex === 0 ? <Home /> : <HomeOutlined />} 
                 label={t('navigation:navigationBar.home.label')}

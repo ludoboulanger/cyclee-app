@@ -4,6 +4,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import ActionButton from '../../mui-elements/action-button';
 import MUIButton from '../../mui-elements/mui-button';
 import Input from '../../rhf-elements/input';
+import Test from '../../../public/assets/logo/logo.svg';
 
 export type LoginFormValues = {
     email: string;
@@ -37,6 +38,7 @@ const LoginCard: React.FC = () => {
           email: '',
           password: ''
         },
+        mode: 'onSubmit'
       });
     
 
@@ -56,7 +58,8 @@ const LoginCard: React.FC = () => {
                             placeholder={'Email or phone number'}
                             form={form} 
                             rules={{required: 'Email is required'}} 
-                            type='email'/>
+                            inputType='email'
+                        />
                         
                         <InvisibleDivider />
 
@@ -65,7 +68,8 @@ const LoginCard: React.FC = () => {
                             placeholder={'Password'} 
                             form={form} 
                             rules={{required: 'Password is required'}}
-                            type='password'/>
+                            inputType='password'
+                        />
 
                         <InvisibleDivider />
 
