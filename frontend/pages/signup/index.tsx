@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { NextPageContext } from "next";
-import { useState } from "react";
 import ConfirmationPage from "../../components/SignupForm/ConfirmationPage";
 import styled from "@emotion/styled";
 import { useAuth } from "../../services/auth";
@@ -26,7 +25,7 @@ const SignUp: React.FC = () => {
   const auth = useAuth();
 
   function onSubmit(data: SignupFormFields) {
-    auth.signUp(data.email, data.password).catch((error) => {
+    auth.signUp(data.email, data.password, data.firstName).catch((error) => {
       alert(error);
     });
   }
@@ -34,10 +33,7 @@ const SignUp: React.FC = () => {
   return (
     <Container>
       {auth.user ? (
-        <ConfirmationPage
-          email={auth.user.email}
-          firstName={auth.user.displayName}
-        />
+        <ConfirmationPage />
       ) : (
         <FormController
           pages={[PersonnalInformationsForm, PasswordForm]}

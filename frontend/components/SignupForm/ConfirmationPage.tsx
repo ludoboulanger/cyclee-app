@@ -2,6 +2,7 @@ import { styled } from "@mui/system";
 import { LinearProgress, Typography } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import { useMemo } from "react";
+import { useAuth } from "../../services/auth";
 
 const HorizontalDiv = styled("div")({
   display: "flex",
@@ -15,20 +16,20 @@ const HorizontalDiv = styled("div")({
   maxHeight: "800px",
   width: "100%",
 });
-interface PropsType {
-  firstName: string;
-  email: string;
-}
-const ConfirmationPage: React.FC<PropsType> = ({ firstName, email }) => {
-  const { t } = useTranslation("signup");
 
+const ConfirmationPage: React.FC = () => {
+  const { t } = useTranslation("signup");
+  const { user } = useAuth();
+  if (!user) {
+    throw new Error("User is not defined");
+  }
   const title = useMemo(() => {
-    if (firstName.length > 0 && firstName.length < 15) {
-      return t("titles.secondPage", { firstName });
+    if (user.displayName.length > 0 && user.displayName.length < 15) {
+      return t("titles.secondPage", { firstName: user.displayName });
     } else {
       return t("titles.firstPage");
     }
-  }, [firstName, t]);
+  }, [user, t]);
 
   return (
     <HorizontalDiv>
@@ -41,7 +42,7 @@ const ConfirmationPage: React.FC<PropsType> = ({ firstName, email }) => {
         sx={{ width: "100%", marginTop: "57px", marginBottom: "86px" }}
       />
       <Typography align="center" variant="body1">
-        {t("confirmationMessage", { email })}
+        {t("confirmationMessage", { email: user.email })}
       </Typography>
     </HorizontalDiv>
   );

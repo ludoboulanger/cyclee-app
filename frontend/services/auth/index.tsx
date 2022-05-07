@@ -13,7 +13,12 @@ interface authContextType {
   user: User | undefined;
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
-  signUp: (email: string, password: string) => Promise<void>;
+  signUp: (
+    email: string,
+    password: string,
+    displayName: string
+  ) => Promise<void>;
+  updateProfile: (user: User) => Promise<void>;
 }
 
 const authenticator = new EmailAndPasswordAuthFirebase();
@@ -21,8 +26,12 @@ const authenticator = new EmailAndPasswordAuthFirebase();
 export default function useProvideAuth() {
   const [user, setUser] = useState<User | undefined>(undefined);
 
-  const signUp = (email: string, password: string): Promise<void> => {
-    return authenticator.signUp(email, password).then((user) => {
+  const signUp = (
+    email: string,
+    password: string,
+    displayName: string
+  ): Promise<void> => {
+    return authenticator.signUp(email, password, displayName).then((user) => {
       setUser(user);
     });
   };
@@ -39,11 +48,16 @@ export default function useProvideAuth() {
     });
   };
 
+  const updateProfile = (user: User): Promise<void> => {
+    return authenticator.updateProfile(user);
+  };
+
   return {
     user,
     signUp,
     signIn,
     signOut,
+    updateProfile,
   };
 }
 

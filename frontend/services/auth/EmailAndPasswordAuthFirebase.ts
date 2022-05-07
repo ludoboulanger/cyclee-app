@@ -1,13 +1,14 @@
 import EmailAndPasswordAuth from './EmailAndPasswordAuth';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, updateProfile} from "firebase/auth";
 import { User } from '../../schemas/User';
 
 
 export default class EmailAndPasswordAuthFirebase {
 
 
-    async signUp(email: string, password: string): Promise<User> {
+    async signUp(email: string, password: string, displayName: string): Promise<User> {
         const userCredential = await createUserWithEmailAndPassword(getAuth(), email, password);
+        updateProfile(userCredential.user, {displayName});
         await sendEmailVerification(userCredential.user);
         return {displayName: userCredential.user.displayName, 
                 email: userCredential.user.email, 
@@ -27,5 +28,13 @@ export default class EmailAndPasswordAuthFirebase {
 
     async signOut(): Promise<void> {
         await getAuth().signOut();
+    }
+
+    async updateProfile(user: User): Promise<void> {
+        const currentUser = getAuth().currentUser;
+        if(!currentUser) {
+            throw new Error('User not logged in');
+        }
+        return updateProfile(currentUser, {displayName: user.displayName, photoURL: user.photoURL});
     }
 }
