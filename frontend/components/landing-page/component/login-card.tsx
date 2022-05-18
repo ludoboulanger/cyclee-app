@@ -1,10 +1,9 @@
-import { Divider, styled } from '@mui/material';
 import React from 'react';
+import { Divider, styled } from '@mui/material';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import ActionButton from '../../mui-elements/action-button';
 import MUIButton from '../../mui-elements/mui-button';
 import Input from '../../rhf-elements/input';
-import Test from '../../../public/assets/logo/logo.svg';
 
 export type LoginFormValues = {
     email: string;

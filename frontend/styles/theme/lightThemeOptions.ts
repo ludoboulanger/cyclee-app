@@ -17,7 +17,7 @@ const lightThemeOptions: ThemeOptions = {
     error: {
       main: '#CC3333'
     }
-  },
+  }
 };
 
 export default lightThemeOptions;

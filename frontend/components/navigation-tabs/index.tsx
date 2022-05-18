@@ -1,5 +1,5 @@
 
-import * as React from 'react';
+import React from 'react';
 import { styled } from '@mui/system';
 import { Tab, Tabs} from '@mui/material';
 import { useState } from 'react';

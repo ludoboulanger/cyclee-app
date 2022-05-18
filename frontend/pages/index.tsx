@@ -1,14 +1,14 @@
+import { styled } from '@mui/material';
 import type { NextPage, NextPageContext } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 
-
 const Home: NextPage = () => {
   const { t } = useTranslation("common");
   const router = useRouter();
   return (
-    <>Test</>
+    <p>Test</p>
   );
 };
 

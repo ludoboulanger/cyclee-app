@@ -1,5 +1,14 @@
+// TODO: Use the style overwrite in the theme file
+// Once done, this file will be deprecated
+
 import React from 'react';
 import { alpha, Button, styled } from '@mui/material';
+
+interface Props {
+    muiButtonType: 'primary' | 'secondary', 
+    onClick: () => void,
+    type?: 'submit'
+}
 
 const StyledButton = styled(Button)<{buttontype: string}>(({theme, buttontype}) => ({
     fontSize: '16px',
@@ -9,18 +18,16 @@ const StyledButton = styled(Button)<{buttontype: string}>(({theme, buttontype}) 
     width: '100%',
     backgroundColor: buttontype === 'secondary' ? alpha(theme.palette.primary.main, 0.3) : '',
     color: buttontype === 'secondary' ? theme.palette.primary.main : '',
+    transition: 'filter 300ms',
 
     '&:hover': {
-        backgroundColor: buttontype === 'secondary' ? alpha(theme.palette.primary.main, 0.2) : alpha(theme.palette.primary.main, 0.9),
-        color:  buttontype === 'secondary' ? alpha(theme.palette.primary.main, 0.8) : '',
+        backgroundColor: buttontype === 'secondary' ? alpha(theme.palette.primary.main, 0.3) : theme.palette.primary.main,
+        color: buttontype === 'secondary' ? theme.palette.primary.main : '',
+        filter: 'brightness(0.90) ! important',
     }
 }));
 
-const MUIButton: React.FC<{
-    muiButtonType: 'primary' | 'secondary', 
-    onClick: () => void,
-    type?: 'submit'
-}> = (props) => {
+const MUIButton: React.FC<Props> = (props) => {
 
     return(
         <StyledButton 

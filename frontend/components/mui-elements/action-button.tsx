@@ -1,21 +1,28 @@
-import { alpha, styled } from '@mui/material';
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { Button, styled } from '@mui/material';
 
-const StyledButton = styled('button')(({theme}) => ({
+interface Props {
+    onClick: () => void
+}
+
+const StyledButton = styled(Button)(({theme}) => ({
     color: theme.palette.primary.main,
     backgroundColor: 'transparent',
     border: 'none',
     fontWeight: '700',
     fontSize: '14px',
     width: 'fit-content',
+    textTransform: 'none',
+    transition: 'filter 300ms',
 
     '&:hover': {
-        color: alpha(theme.palette.primary.main, 0.8)
+        filter: 'brightness(90%)',
+        backgroundColor: 'transparent',
     }
 }));
 
-const ActionButton: React.FC<{onClick: () => void}> = (props) => {
-    return <StyledButton onClick={props.onClick}>{props.children}</StyledButton>;
+const ActionButton: React.FC<Props> = (props) => {
+    return <StyledButton variant='text' disableRipple={true} onClick={props.onClick}>{props.children}</StyledButton>;
 };
 
 export default ActionButton;
