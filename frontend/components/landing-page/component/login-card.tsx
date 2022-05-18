@@ -8,7 +8,7 @@ import Input from '../../rhf-elements/input';
 export type LoginFormValues = {
     email: string;
     password: string;
-}
+};
 
 const Card = styled('div')({
     borderRadius: '10px',
