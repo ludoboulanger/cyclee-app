@@ -57,7 +57,7 @@ const DesktopLandingPage: React.FC = () => {
                     </LoginContainer>
                 </GridContainer>
             </Container>
-            <Footer></Footer>
+            <Footer/>
         </>
     );
 };

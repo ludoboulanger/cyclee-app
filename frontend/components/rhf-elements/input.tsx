@@ -4,7 +4,9 @@ import { styled, TextField } from '@mui/material';
 import { LoginFormValues } from '../landing-page/component/login-card';
 
 interface Props {
-    name: string; 
+    // TODO: Find a way to set name as string. The compiler say: Type 'string' is not assignable to type '"email" | "password"'. 
+    // name: string;
+    name: "email" | "password"; 
     label?: ReactNode; 
     placeholder?: string,
     icon?: ReactNode; 
@@ -30,7 +32,7 @@ const Input: React.FC<Props> = ({
 }) => {
     return(
         <>
-            <Label>{label}</Label>
+            {label && <Label>{label}</Label>}
             <Controller
                 name={name}
                 control={form.control}

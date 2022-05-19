@@ -53,7 +53,7 @@ const LoginCard: React.FC = () => {
                 <form onSubmit={form.handleSubmit(onSubmit)}>
                     <FormContainer>
                         <Input 
-                            name='email' 
+                            name={'email'} 
                             placeholder={'Email or phone number'}
                             form={form} 
                             rules={{required: 'Email is required'}} 
@@ -63,7 +63,7 @@ const LoginCard: React.FC = () => {
                         <InvisibleDivider />
 
                         <Input 
-                            name='password' 
+                            name={'password'} 
                             placeholder={'Password'} 
                             form={form} 
                             rules={{required: 'Password is required'}}
