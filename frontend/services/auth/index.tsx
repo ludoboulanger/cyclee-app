@@ -9,22 +9,21 @@ import React, {
 import { User } from "../../schemas/User";
 import EmailAndPasswordAuthFirebase from "./EmailAndPasswordAuthFirebase";
 
-interface authContextType {
-  user: User | undefined;
-  signIn: (email: string, password: string) => Promise<void>;
+export interface Authenticator {
+  signIn: (email: string, password: string) => Promise<User>;
   signOut: () => Promise<void>;
   signUp: (
     email: string,
     password: string,
     displayName: string
-  ) => Promise<void>;
+  ) => Promise<User>;
   updateProfile: (user: User) => Promise<void>;
 }
 
-const authenticator = new EmailAndPasswordAuthFirebase();
+const authenticator: Authenticator = new EmailAndPasswordAuthFirebase();
 
 export default function useProvideAuth() {
-  const [user, setUser] = useState<User | undefined>(undefined);
+  const [user, setUser] = useState<User | null>(null);
 
   const signUp = (
     email: string,
@@ -44,7 +43,7 @@ export default function useProvideAuth() {
 
   const signOut = (): Promise<void> => {
     return authenticator.signOut().then(() => {
-      setUser(undefined);
+      setUser(null);
     });
   };
 
@@ -61,7 +60,9 @@ export default function useProvideAuth() {
   };
 }
 
-const authContext = createContext<authContextType | undefined>(undefined);
+const authContext = createContext<ReturnType<typeof useProvideAuth> | null>(
+  null
+);
 interface Props {
   children: ReactNode;
 }
@@ -71,8 +72,6 @@ export function AuthProvider({ children }: Props) {
 }
 export const useAuth = () => {
   const auth = useContext(authContext);
-  if (auth === undefined) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
+  assert(auth, "useAuth must be used within an AuthProvider");
   return auth;
 };

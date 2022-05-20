@@ -5,4 +5,5 @@ export interface User {
     phoneNumber: string | null ;
     photoURL: string | null ;
     uid: string;
+    emailVerified: boolean;
 }
