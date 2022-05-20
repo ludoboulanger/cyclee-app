@@ -19,10 +19,11 @@ const HorizontalDiv = styled("div")({
 
 const ConfirmationPage: React.FC = () => {
   const { t } = useTranslation("signup");
-  const { user } = useAuth();
-  if (!user) {
-    throw new Error("User is not defined");
+  const authService = useAuth();
+  if (!authService?.user) {
+    throw new Error("User is not signed in");
   }
+  const { user } = authService;
   const title = useMemo(() => {
     if (user.displayName.length > 0 && user.displayName.length < 15) {
       return t("titles.secondPage", { firstName: user.displayName });
