@@ -24,3 +24,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.swiper-pagination-bullet-active {
+  background-color: #3CB474 !important;
+}

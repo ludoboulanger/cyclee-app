@@ -1,0 +1,45 @@
+{
+    "button": {
+            "createAccount": {
+                "label": "Create new account"
+            },
+            "forgotPassword": {
+                "label": "Forgot password?"
+            },
+            "signIn": {
+                "label": "Sign in"
+            }
+    },
+    "createAccount": "Don't have an account?",
+    "form": {
+        "field": {
+            "email": {
+                "placeholder": "Email or phone number",
+                "error": {
+                    "required": "Email is required"
+                }
+            },
+            "password": {
+                "placeholder": "Password",
+                "error": {
+                    "required": "Password is required"
+                }
+            }
+        },
+        "button": {
+            "signIn": "Sign in"
+        }
+    },
+    "swiper": {
+        "newHobbies": {
+            "label": "Explore new hobbies by renting anything!"
+        },
+        "sideIncome": {
+            "label": "Make side incomes by sharing stuff that you only use often with others!"
+        },
+        "discount": {
+            "label": "Get items that are in good condition at low prices!"
+        }
+    },
+    "title": "Cyclee"
+}

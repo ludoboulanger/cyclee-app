@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { useIsMobile } from '../responsive-viewport';
 import { AppBar, styled, Toolbar } from '@mui/material';
 import SearchBar from '../search-bar';
@@ -38,23 +38,28 @@ const NavigationBar: React.FC = () => {
     const isMobile = useIsMobile();
 
     return(
-        <StyledAppBar>
-            <Toolbar>
-                <StyledGrid mobile={isMobile.toString()}>
-                    <StyledLeftContent>
-                        <StyledLogo />
-                        {!isMobile && <SearchBar />}
-                    </StyledLeftContent>
-                    <StyledRightContent mobile={isMobile.toString()}>
-                        {isMobile ? 
-                                <SearchBar /> 
-                            : 
-                                <NavigationTabs variant={TabsVariant.Standard} />
-                        }
-                    </StyledRightContent>
-                </StyledGrid>
-            </Toolbar>
-        </StyledAppBar>
+        <>
+            <StyledAppBar>
+                <Toolbar>
+                    <StyledGrid mobile={isMobile.toString()}>
+                        <StyledLeftContent>
+                            <StyledLogo />
+                            {!isMobile && <SearchBar />}
+                        </StyledLeftContent>
+                        <StyledRightContent mobile={isMobile.toString()}>
+                            {isMobile ? 
+                                    <SearchBar /> 
+                                : 
+                                    <NavigationTabs variant={TabsVariant.Standard} />
+                            }
+                        </StyledRightContent>
+                    </StyledGrid>
+                </Toolbar>
+            </StyledAppBar>
+
+            {/* Ugly fix to prevent appbar hidding content beneath it */}
+            <Toolbar/>
+        </>
     );
 };
 
