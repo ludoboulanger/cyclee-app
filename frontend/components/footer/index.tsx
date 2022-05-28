@@ -7,7 +7,8 @@ const FooterContainer = styled('div')(({theme}) => ({
     position: 'relative',
     backgroundColor: alpha(theme.palette.primary.main, 0.2),
     height: '400px',
-    textAlign: 'center'
+    textAlign: 'center',
+    width: '100vw'
 }));
 
 const Copyright = styled('span')({

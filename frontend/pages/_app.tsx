@@ -22,7 +22,7 @@ const lightTheme = createTheme(lightThemeOptions);
 
 const MyApp = ({Component, pageProps}: AppProps) => {
   // TODO: Use Firebase Auth context
-  const isUserConnected = true;
+  const isUserConnected = false;
 
   return (
     <CacheProvider value={clientSideEmotionCache}>

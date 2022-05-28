@@ -1,25 +1,45 @@
 {
-    "title": "Cyclee",
+    "button": {
+            "createAccount": {
+                "label": "Créer un compte"
+            },
+            "forgotPassword": {
+                "label": "Mot de passe oublié ?"
+            },
+            "signIn": {
+                "label": "Connexion"
+            }
+    },
+    "createAccount": "Vous n'avez pas de compte ?",
+    "form": {
+        "field": {
+            "email": {
+                "placeholder": "Courriel ou numéro de téléphone",
+                "error": {
+                    "required": "Courriel est obligatoire"
+                }
+            },
+            "password": {
+                "placeholder": "Mot de passe",
+                "error": {
+                    "required": "Mot de passe est obligatoire"
+                }
+            }
+        },
+        "button": {
+            "signIn": "Connexion"
+        }
+    },
     "swiper": {
         "newHobbies": {
             "label": "Explorez de nouveaux passe-temps en louant n'importe quoi !"
         },
         "sideIncome": {
-            "label": "Gagnez des revenus secondaires en partageant avec d'autres des objets que vous n'utilisez que rarement !"
+            "label": "Gagnez des revenus secondaires en partageant avec d'autres des objets que vous n'utilisez pas souvent !"
         },
         "discount": {
-            "label": "Obtenez des objets qui sont en bon état à de petit prix !"
+            "label": "Obtenez des articles en bon état à bas prix !"
         }
     },
-    "button": {
-        "signIn": {
-            "label": "S'inscrire"
-        },
-        "createAccount": {
-            "label": "Créer un compte"
-        }
-    },
-    "createAccount": {
-        "label": "Vous n'avez pas encore de compte ?"
-    }
+    "title": "Cyclee"
 }

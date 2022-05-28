@@ -1,7 +1,3 @@
-/* html {
-  font-size: calc(1em + 0.5vw);
-} */
-
 html,
 body {
   padding: 0;
@@ -10,7 +6,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-/* html,
+html,
 body,
 div#__next {
   height: 100%;
@@ -18,7 +14,7 @@ div#__next {
   display: flex;
   max-width: none;
   width: 100%;
-} */
+}
 
 a {
   color: inherit;

@@ -45,7 +45,7 @@ const DesktopLandingPage: React.FC = () => {
     const {t} = useTranslation('landing');
 
     return(
-        <>
+        <div>
             <Container>
                 <GridContainer>
                     <PresentationContainer>
@@ -58,7 +58,7 @@ const DesktopLandingPage: React.FC = () => {
                 </GridContainer>
             </Container>
             <Footer/>
-        </>
+        </div>
     );
 };
 

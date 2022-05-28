@@ -4,6 +4,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import ActionButton from '../../mui-elements/action-button';
 import MUIButton from '../../mui-elements/mui-button';
 import Input from '../../rhf-elements/input';
+import { useTranslation } from 'next-i18next';
 
 export type LoginFormValues = {
     email: string;
@@ -32,6 +33,8 @@ const StyledDivider = styled(Divider)({
 });
 
 const LoginCard: React.FC = () => {
+    const {t} = useTranslation(['landing']);
+
     const form = useForm<LoginFormValues>({
         defaultValues: {
           email: '',
@@ -54,9 +57,9 @@ const LoginCard: React.FC = () => {
                     <FormContainer>
                         <Input 
                             name={'email'} 
-                            placeholder={'Email or phone number'}
+                            placeholder={t('landing:form.field.email.placeholder')}
                             form={form} 
-                            rules={{required: 'Email is required'}} 
+                            rules={{required: t('landing:form.field.email.error.required')}} 
                             inputType='email'
                         />
                         
@@ -64,9 +67,9 @@ const LoginCard: React.FC = () => {
 
                         <Input 
                             name={'password'} 
-                            placeholder={'Password'} 
+                            placeholder={t('landing:form.field.password.placeholder')} 
                             form={form} 
-                            rules={{required: 'Password is required'}}
+                            rules={{required: t('landing:form.field.password.error.required')}}
                             inputType='password'
                         />
 
@@ -77,7 +80,7 @@ const LoginCard: React.FC = () => {
                             onClick={form.handleSubmit(onSubmit)} 
                             muiButtonType='primary'
                         >
-                            {'Log In'} 
+                            {t('landing:form.button.signIn')} 
                         </MUIButton>
 
                     </FormContainer>
@@ -87,7 +90,7 @@ const LoginCard: React.FC = () => {
             <InvisibleDivider />
 
             <ActionButton onClick={() => window.alert('TODO: Open Forgot password process')}>
-                {'Forgot password?'}
+                {t('landing:button.forgotPassword.label')}
             </ActionButton>
 
             <StyledDivider />
@@ -96,7 +99,7 @@ const LoginCard: React.FC = () => {
                 onClick={() => window.alert('TODO: Open Create account form process')} 
                 muiButtonType={'secondary'}
             >
-                    {'Create new account'} 
+                {t('landing:button.createAccount.label')} 
             </MUIButton>
         </Card>
     );

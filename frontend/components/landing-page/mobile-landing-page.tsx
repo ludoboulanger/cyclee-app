@@ -53,7 +53,7 @@ const MobileLandingPage: React.FC = () => {
                     {t('landing:button.signIn.label')}
                 </MUIButton>
 
-                <CreateAccountLabel>{t('landing:createAccount.label')}</CreateAccountLabel>
+                <CreateAccountLabel>{t('landing:createAccount')}</CreateAccountLabel>
 
                 <MUIButton 
                     muiButtonType='secondary' 
