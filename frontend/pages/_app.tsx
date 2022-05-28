@@ -15,7 +15,7 @@ import BottomNavigationBar from '../components/bottom-navigation-bar';
 import { Mobile } from '../components/responsive-viewport';
 import NavigationBar from '../components/navigation-bar';
 import LandingPage from '../components/landing-page';
-import { AuthProvider } from "../services/auth";
+import useProvideAuth, { AuthProvider } from "../services/auth";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -23,14 +23,14 @@ const lightTheme = createTheme(lightThemeOptions);
 
 const MyApp = ({Component, pageProps}: AppProps) => {
   // TODO: Use Firebase Auth context
-  const isUserConnected = false;
+  const auth = useProvideAuth();
 
   return (
     <CacheProvider value={clientSideEmotionCache}>
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
         <AuthProvider>
-          {isUserConnected ? 
+          {auth.user ? 
             <>
               <NavigationBar />
               <Component {...pageProps} />
