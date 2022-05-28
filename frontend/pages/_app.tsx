@@ -15,6 +15,7 @@ import BottomNavigationBar from '../components/bottom-navigation-bar';
 import { Mobile } from '../components/responsive-viewport';
 import NavigationBar from '../components/navigation-bar';
 import LandingPage from '../components/landing-page';
+import { AuthProvider } from "../services/auth";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -28,17 +29,19 @@ const MyApp = ({Component, pageProps}: AppProps) => {
     <CacheProvider value={clientSideEmotionCache}>
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
-        {isUserConnected ? 
-          <>
-            <NavigationBar />
-            <Component {...pageProps} />
-            <Mobile>
-              <BottomNavigationBar />
-            </Mobile>
-          </>
-        :
-          <LandingPage />
-        }
+        <AuthProvider>
+          {isUserConnected ? 
+            <>
+              <NavigationBar />
+              <Component {...pageProps} />
+              <Mobile>
+                <BottomNavigationBar />
+              </Mobile>
+            </>
+          :
+            <LandingPage />
+          }
+        </AuthProvider>
       </ThemeProvider>
     </CacheProvider>
   );
